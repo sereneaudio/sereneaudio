@@ -1,0 +1,189 @@
+
+.gallery_container{
+    background-color: black;
+    overflow: hidden;
+    position: absolute;
+}
+
+.gallery, #zoomedImageContainer{
+
+    top: 0;
+    left: 0;
+    //bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    min-width: 720px;
+    background-color: black;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: flat;
+    backface-visibility: hidden;
+    transform-style: flat;
+    //z-index: 3;
+
+}
+
+
+.imageTile{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    */
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: flat;
+    backface-visibility: hidden;
+    transform-style: flat;
+    background-size: cover;
+    background-position:center;
+    height: 100%;
+}
+
+
+
+.gallery > div{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    top:0;
+    left: 0;
+    background-color: grey;
+}
+.gallery .image1_container{
+    border-right: 2px solid #F3E8BB;
+}
+.imageTile1{
+
+    background-image: url(/images/product_images/talisman/IMG_8144_gallery.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-color: bisque;
+
+    //background-image: url(/images/product_images/talisman/DSC_4382.jpg);
+}
+
+.gallery .image2_container{
+    border: 2px solid #F3E8BB;
+    border-top: none;
+
+}
+.imageTile2{
+    background-image: url(/images/product_images/talisman/DSC_4357.jpg);
+}
+.gallery .image3_container{
+    border: 2px solid #F3E8BB;
+    border-top: none;
+}
+.imageTile3{
+    background-image: url(/images/product_images/talisman/DSC_4185.jpg);
+}
+.gallery .image4_container{
+    border: 2px solid #F3E8BB;
+    border-top: none;
+    border-right: none;
+}
+.imageTile4{
+    background-color: bisque;
+    background-image: url(/images/product_images/talisman/back_gallery_03.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+.gallery .image5_container{
+    border: 2px solid #F3E8BB;
+    border-bottom: none;
+}
+.imageTile5{
+    background-image: url(/images/product_images/talisman/DSC_4430.jpg);
+}
+.gallery .image6_container{
+    border: 2px solid #F3E8BB;
+    border-bottom: none;
+    border-right: none;
+}
+.imageTile6{
+    background-image: url(/images/product_images/talisman/DSC_4456.jpg);
+}
+.gallery .image7_container{
+    border: 2px solid #F3E8BB;
+    border-bottom: none;
+    border-right: none;
+}
+.imageTile7{
+    background-image: url(/images/product_images/talisman/DSC_4357.jpg);
+}
+
+#zoomedImageContainer{
+    background-color: black;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-color:  rgb(216, 160, 103);
+    z-index: 3;
+}
+
+#hiresImage{
+    background-position: bottom;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    //max-height: 100%
+    //display: table-cell;
+    display: block;
+    //vertical-align: middle;
+    height: 100vh;
+
+}
+#gallery_emblem{
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin-left: -50px;
+    margin-top: -51px;
+    opacity: 0.2;
+}
+#loader_wrapper{
+    width: 144px;
+    height: 138px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-left: -100px;
+    margin-top: -100px;
+    overflow: hidden;
+    border-radius: 54px;
+    border: black;
+    border-width: 3px;
+    /* border-style: solid; */
+}
+
+.zoom-close-btn {
+    position:absolute;
+    right: 40px;
+    top: 30px;
+    border-color: #eaeaea;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 1px rgba(63,63,63, 0.25);
+    -webkit-border-radius: 80px3
+        -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 3px;
+    color: #eaeaea;
+    padding:10px;
+    display: block;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgba(63,63,63, 0.5);
+}

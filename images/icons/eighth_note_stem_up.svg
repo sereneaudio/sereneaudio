@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   width="30"
+   height="35"
+   viewBox="0 0 4.818001 5.6210011"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="eighth_note_stem_up.svg">
+  <metadata
+     id="metadata42">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs40" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1020"
+     id="namedview38"
+     showgrid="true"
+     inkscape:snap-grids="false"
+     inkscape:zoom="10.148731"
+     inkscape:cx="64.300036"
+     inkscape:cy="24.245114"
+     inkscape:window-x="-3"
+     inkscape:window-y="-3"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3019"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <!-- Page: 1/1 -->
+  <text
+     font-size="2.1995"
+     id="text4"
+     style="font-size:2.19950008px;text-anchor:start;fill:currentColor;font-family:Century Schoolbook L"
+     x="5.6905999"
+     y="-160.54311">
+    <tspan
+       id="tspan6" />
+  </text>
+  <g
+     id="g3021"
+     transform="translate(-12.090026,-162.40727)">
+    <path
+       style="fill:currentColor"
+       inkscape:connector-curvature="0"
+       id="path20"
+       d="m 13.79997,166.10678 c 0.224,0 0.436,0.116 0.436,0.364 0,0.288 -0.224,0.484 -0.412,0.596 -0.144,0.084 -0.304,0.144 -0.468,0.144 -0.224,0 -0.436,-0.116 -0.436,-0.364 0,-0.288 0.224,-0.484 0.412,-0.596 0.144,-0.084 0.304,-0.144 0.468,-0.144 z" />
+    <rect
+       style="fill:currentColor"
+       id="rect24"
+       ry="0.039999999"
+       height="3.3122001"
+       width="0.13"
+       y="163.15877"
+       x="14.106071" />
+      <!-- This is the dot
+    <path
+       style="fill:currentColor"
+       inkscape:connector-curvature="0"
+       id="path26"
+       d="m 15.52217,166.15878 c 0,-0.124 0.1,-0.224 0.224,-0.224 0.124,0 0.224,0.1 0.224,0.224 0,0.124 -0.1,0.224 -0.224,0.224 -0.124,0 -0.224,-0.1 -0.224,-0.224 z" />
+-->
+<path
+       style="fill:currentColor"
+       inkscape:connector-curvature="0"
+       id="path28"
+       d="m 14.23607,163.19878 c 0,0.792 0.836,1.34 0.836,2.132 0,0.284 -0.064,0.564 -0.168,0.828 -0.02,0.032 -0.048,0.048 -0.076,0.048 -0.052,0 -0.104,-0.044 -0.092,-0.108 0.104,-0.244 0.168,-0.504 0.168,-0.768 0,-0.416 -0.38,-0.832 -0.668,-1.132 h -0.064 v -1 h 0.064 z" />
+  </g>
+  <a
+     transform="translate(31.6841,1.7627996)"
+     xlink:href="http://lilypond.org/"
+     id="a30">
+    <rect
+       x="0"
+       y="-0.44389999"
+       width="56.133499"
+       height="2.0827"
+       id="rect32"
+       style="fill:none;stroke:none" />
+  </a>
+</svg>

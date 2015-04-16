@@ -1,0 +1,83 @@
+
+p.introduction:first-letter {
+    font-size : 340%;
+    font-weight : bold;
+    float : left;
+    width : 1rem;
+    color : #c60101;
+    padding-top: 1.3rem;
+    padding-right: 0.5rem;
+}
+#post-content * p{
+    font-size: 2.2rem;
+    margin-top: 1.5rem;
+}
+#post-content * li p {
+    margin: 0;
+}
+#post-content * ol li {
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    padding-left: 0rem;
+    list-style-position: outside;
+    font-family: "concourse-t3";
+    -moz-font-feature-settings: 'liga=1', 'ss01=0';
+    -moz-font-feature-settings: 'liga' 1, 'ss01' 0;
+    -webkit-font-feature-settings: 'liga' 1, 'ss01' 0;
+    -o-font-feature-settings: 'liga' 1, 'ss01' 0;
+    -ms-font-feature-settings: 'liga' 1, 'ss01' 0;
+    font-feature-settings: 'liga' 1, 'ss01' 0;
+}
+
+#post-content h1{
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+#post-content h2{
+    font-family: 'Lato', sans-serif;
+    font-family: 'equity-text-b', sans-serif;
+    font-family: 'concourse-t6', sans-serif;
+    /font-family: 'concourse-t2', sans-serif;
+    /font-family: 'Freight Sans Pro Book', sans-serif;
+    //font-family: 'Fira Sans', sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.1rem;
+    font-variant: small-caps;
+
+    margin-top: 2.5rem;
+    -webkit-font-feature-settings: 'ss02' 1;
+}
+
+figcaption {
+    font-size: 2.0rem;
+    text-align: center;
+    list-style-position: outside;
+    font-family: "concourse-t3";
+    -webkit-font-feature-settings: 'ss02' 1;
+}
+.review-quotation {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    display: block;
+    font-style: italic;
+    color: black;
+}
+
+.review-source {
+    display: block;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    text-align: right;
+    font-family: 'concourse-t3', sans-serif;
+
+    font-size: 2.0rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.1rem;
+    -webkit-font-feature-settings: 'ss02' 1;
+}
