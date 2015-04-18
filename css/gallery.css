@@ -1,3 +1,7 @@
+---
+---
+
+
 
 .gallery_container{
     background-color: black;
@@ -66,12 +70,12 @@
 }
 .imageTile1{
 
-    background-image: url({ site.baseurl }}/images/product_images/talisman/IMG_8144_gallery.png);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/IMG_8144_gallery.png);
     background-size: 90%;
     background-repeat: no-repeat;
     background-color: bisque;
 
-    //background-image: url({ site.baseurl }}/images/product_images/talisman/DSC_4382.jpg);
+    //background-image: url({{ site.baseurl }}/images/product_images/talisman/DSC_4382.jpg);
 }
 
 .gallery .image2_container{
@@ -80,14 +84,14 @@
 
 }
 .imageTile2{
-    background-image: url({ site.baseurl }}/images/product_images/talisman/DSC_4357.jpg);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/DSC_4357.jpg);
 }
 .gallery .image3_container{
     border: 2px solid #F3E8BB;
     border-top: none;
 }
 .imageTile3{
-    background-image: url({ site.baseurl }}/images/product_images/talisman/DSC_4185.jpg);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/DSC_4185.jpg);
 }
 .gallery .image4_container{
     border: 2px solid #F3E8BB;
@@ -96,7 +100,7 @@
 }
 .imageTile4{
     background-color: bisque;
-    background-image: url({ site.baseurl }}/images/product_images/talisman/back_gallery_03.png);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/back_gallery_03.png);
     background-size: 90%;
     background-repeat: no-repeat;
 }
@@ -105,7 +109,7 @@
     border-bottom: none;
 }
 .imageTile5{
-    background-image: url({ site.baseurl }}/images/product_images/talisman/DSC_4430.jpg);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/DSC_4430.jpg);
 }
 .gallery .image6_container{
     border: 2px solid #F3E8BB;
@@ -113,7 +117,7 @@
     border-right: none;
 }
 .imageTile6{
-    background-image: url({ site.baseurl }}/images/product_images/talisman/DSC_4456.jpg);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/DSC_4456.jpg);
 }
 .gallery .image7_container{
     border: 2px solid #F3E8BB;
@@ -121,7 +125,7 @@
     border-right: none;
 }
 .imageTile7{
-    background-image: url({ site.baseurl }}/images/product_images/talisman/DSC_4357.jpg);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/DSC_4357.jpg);
 }
 
 #zoomedImageContainer{
