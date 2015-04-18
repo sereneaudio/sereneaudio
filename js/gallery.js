@@ -69,7 +69,7 @@ $(document).ready(function() {
                             alert('broken image!');
                         } else {
                             //$("#zoomedImageContainer").append(img);
-                            $("#zoomedImageContainer").prepend($("<div></div>").attr({'id' : 'hiresImage'}).css({'opacity': 0, 'background-image':'url('+hires_src+')', 'background-size': hires_bgSize}).addClass('imageTile'));
+                            $("#zoomedImageContainer").prepend($("<div></div>").attr({'id' : 'hiresImage'}).css({'opacity': 0, 'background-image':'url( {{ site.baseurl | prepend: '"' | append: '" +' }}  '+hires_src+')', 'background-size': hires_bgSize}).addClass('imageTile'));
                             var imgLoad_tl = new TimelineLite();
                             imgLoad_tl.add(loadingIcon.animateOut()).to($('#hiresImage'), 0.5, {autoAlpha:1});
                         }
