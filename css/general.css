@@ -271,7 +271,7 @@ body{
 
 #intro {
     background-color: #fbe9d9;
-    background-image: url('/images/product_images/talisman/DSC_4242-cropped.jpg');
+    background-image: url('{{ site.baseurl }}/images/product_images/talisman/DSC_4242-cropped.jpg');
     background-size: cover;
     background-position: right;
     //z-index: -1;
@@ -324,7 +324,7 @@ body{
     background-color: #F3E8BB;
     background-color: #8BB8A5;
 
-    background-image: url(/images/product_images/talisman/CSD_BG_light.png);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/CSD_BG_light.png);
     background-size:cover;
     background-position: center;
     background-color: #D7744C;
@@ -335,13 +335,13 @@ body{
 
 
 #gallery {
-    /*background-image: url(/images/product_images/talisman/IMG_8141.JPG);*/
+    /*background-image: url({{ site.baseurl }}/images/product_images/talisman/IMG_8141.JPG);*/
     z-index: 2;
     background-color: black;
 }
 
 #aesthetic {
-    -background-image: url('/images/product_images/talisman/DSC_4242-cropped.jpg');
+    -background-image: url('{{ site.baseurl }}/images/product_images/talisman/DSC_4242-cropped.jpg');
     -background-size: cover;
     -background-position: center;
     /*
@@ -362,9 +362,9 @@ body{
 }
 
 #spec {
-    background-image: url(/images/spec_bg.jpg);
-    background-image: url(/images/spec_bg_transparent.png);
-    background-image: url(/images/spec_bg_light_transparent.png);
+    background-image: url({{ site.baseurl }}/images/spec_bg.jpg);
+    background-image: url({{ site.baseurl }}/images/spec_bg_transparent.png);
+    background-image: url({{ site.baseurl }}/images/spec_bg_light_transparent.png);
     -background: -webkit-linear-gradient(right, #ff9721, #a44210, black);
 
     background-color: #8BB8A5;
@@ -450,8 +450,8 @@ body{
     //background: radial-gradient(farthest-corner at 32% 50%, #8e7861, #8b7054 30%, #1a1021);
     //background: radial-gradient(farthest-corner at 50% 50%, #fff8ea 50%,  #f8e9d3);
     //background: radial-gradient(farthest-corner at 50% 50%, #5d7884 50%,  #41696e);
-    //background-image: url('/images/noisy-texture-200x200-o3-d19-c-f5eee1-t1.png');
-    //background-image: url('/images/product_images/talisman/DSC_4116.jpg');
+    //background-image: url('{{ site.baseurl }}/images/noisy-texture-200x200-o3-d19-c-f5eee1-t1.png');
+    //background-image: url('{{ site.baseurl }}/images/product_images/talisman/DSC_4116.jpg');
     background-color: white;
     background-color: #fffefb;
     background-position: left;
