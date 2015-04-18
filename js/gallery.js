@@ -1,3 +1,6 @@
+---
+---
+
 /*
 This code manages the gallery block
 */
@@ -60,7 +63,7 @@ $(document).ready(function() {
                 onComplete: function(){
                     spinner.spin(spinnerTarget);
                     loadingIcon.animateIn();
-                    var img = $("<img />").attr({'src': hires_src, 'id' : 'hiresImage'}).css('opacity', 0)
+                    var img = $("<img />").attr({'src': {{ site.baseurl | prepend: '"' | append: '" +' }} hires_src, 'id' : 'hiresImage'}).css('opacity', 0)
                     .load(function() {
                         if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
                             alert('broken image!');
