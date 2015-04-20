@@ -1,6 +1,11 @@
 ---
 ---
 
+.disable-hover,
+.disable-hover * {
+    pointer-events: none !important;
+}
+
 
 html{
     font-size: 62.5%;

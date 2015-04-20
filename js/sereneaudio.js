@@ -8,8 +8,10 @@ $( document ).ready(function() {
     var winHeight = $(window).height();
     $('.section').height(winHeight);
 
-    /*Dissable hover for better scrolling performance*/
+
+    /*Dissable hover for better scrolling performance
     window.addEventListener('scroll', function() {
+
         clearTimeout(timer);
         if(!body.classList.contains('disable-hover')) {
             body.classList.add('disable-hover')
@@ -20,6 +22,7 @@ $( document ).ready(function() {
         },500);
     }, false);
 
+*/
     //var ScrollMagic_ctrl = new ScrollMagic();
     /*
     ScrollMagic_ctrl.scrollTo(function (newpos) {
@@ -57,10 +60,11 @@ $( document ).ready(function() {
     var scroll_tween = TweenMax.to($window, 1, {
         scrollTo : { y: 0, autoKill:true },
         ease: Power2.easeOut,
-
     });
+
     scroll_tween.pause();
 
+    /*scroll nav side bar clicks*/
     $(document).on("click", "a[href^=#]", function (e) {
         var id = $(this).attr("href");
         if ($(id).length > 0) {
@@ -78,8 +82,10 @@ $( document ).ready(function() {
     $window.on("mousewheel DOMMouseScroll", function(event){
         //scrolls the window one block
         event.preventDefault();
+        event.stopPropagation();
         //return;
         var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
+        //console.log('delta: ', delta);
 
         if(!scroll_tween.isActive() ){
             if ((Math.abs(delta) < 0.1) ) {return false};
@@ -89,12 +95,17 @@ $( document ).ready(function() {
             scroll_tween.updateTo({scrollTo : { y: finalScroll }} , true);
             scroll_tween.restart();
             lastUpdateTime = $.now();
+            return false;
+            //console.log('setting new scroll target');
         }else if ((Math.abs(delta) >= 2.5) && ($.now() -  lastUpdateTime > 600)){
             //if if the user scrolled again while the tween is playing, we update the scroll
             finalScroll = finalScroll + (delta<0 ? winHeight : -winHeight);
             scroll_tween.updateTo({scrollTo : { y: finalScroll }} , true);
             lastUpdateTime = $.now();
+            console.log('updating scroll target');
+            return false;
         }
+        //console.log('just scrolling bro');
         return false;
     });
 
