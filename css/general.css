@@ -52,7 +52,7 @@ h1{
 h2 {
     font-family: 'Lato', sans-serif;
     font-family: 'myBaskerville', serif;
-    font-family: 'freight_text_pro_book', sans-serif;
+    font-family: 'freight-text-pro', sans-serif;
 
     font-style: normal;
     font-weight: 200;
@@ -129,7 +129,7 @@ p {
     font-weight: 400;
     line-height: 145%;
     font-size: 2.0rem;
-    font-family: 'freight_text_pro_book', serif;
+    font-family: 'freight-text-pro', serif;
 
     font-smoothing : antialiased;
     -webkit-font-smoothing:antialiased;
@@ -141,7 +141,7 @@ p > strong {
     font-weight: 700;
     line-height: 145%;
     font-size: 2rem;
-    font-family: 'freight_text_pro_book', serif;
+    font-family: 'freight-text-pro', serif;
 }
 
  li {
@@ -690,7 +690,7 @@ body{
     color:#ffd189;
     text-shadow:1px 1px 3px rgba(0, 0, 0, 0.72);
 
-    font-family: 'freight_text_pro_book', serif;
+    font-family: 'freight-text-pro', serif;
     font-size:1.8rem;
     font-weight:400;
     font-style:normal;
@@ -1044,15 +1044,6 @@ div:hover>.enableHover2>.gradient2:after {
 }
 
 
-p.introduction:first-letter {
-    font-size : 340%;
-    font-weight : bold;
-    float : left;
-    width : 1rem;
-    color : #eaa960;
-    padding-top: 2.55rem;
-    padding-right: 0.5rem;
-}
 
 .shade_gradient {
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, .0) 50%, rgba(0, 0, 0, .5) 100%);

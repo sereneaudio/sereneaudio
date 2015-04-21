@@ -1,13 +1,24 @@
 
+/*
 p.introduction:first-letter {
     font-size : 340%;
     font-weight : bold;
     float : left;
-    width : 1rem;
+    width : 5rem;
     color : #c60101;
-    padding-top: 1.3rem;
+    padding-top: 1.1rem;
     padding-right: 0.5rem;
+
 }
+*/
+
+
+.dropcap {
+    font-weight:600;
+    color : #c60101;
+    margin-right: 0.5rem;
+}
+
 #post-content * p{
     font-size: 2.2rem;
     margin-top: 1.5rem;

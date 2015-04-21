@@ -27,7 +27,7 @@ $( document ).ready(function() {
     /*
     ScrollMagic_ctrl.scrollTo(function (newpos) {
         TweenMax.to(window, 1, {
-            scrollTo: {y: newpos, autoKill:true},
+            scrollTo: {y: newpos, autoKill:false},
             ease: Power2.easeInOut
         });
     });
@@ -58,7 +58,7 @@ $( document ).ready(function() {
 
     var $window = $(window);
     var scroll_tween = TweenMax.to($window, 1, {
-        scrollTo : { y: 0, autoKill:true },
+        scrollTo : { y: 0, autoKill:false },
         ease: Power2.easeOut,
     });
 
@@ -69,8 +69,11 @@ $( document ).ready(function() {
         var id = $(this).attr("href");
         if ($(id).length > 0) {
             e.preventDefault();
-            scroll_tween.updateTo({scrollTo : { y: $(id).offset().top }} , true);
+            //$('html, body').animate({ scrollTop:$(id).offset().top });
+
+            scroll_tween.updateTo({scrollTo : { y: $(id).offset().top, autoKill:false }} , true);
             scroll_tween.restart();
+
             // if supported by the browser we can even update the URL.
             if (window.history && window.history.pushState) {
                 history.pushState("", document.title, id);
@@ -79,6 +82,8 @@ $( document ).ready(function() {
     });
 
     var scrollTop, finalScroll, lastUpdateTime = 0;
+
+
     $window.on("mousewheel DOMMouseScroll", function(event){
         //scrolls the window one block
         event.preventDefault();
@@ -87,24 +92,29 @@ $( document ).ready(function() {
         var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
         //console.log('delta: ', delta);
 
+
         if(!scroll_tween.isActive() ){
+
             if ((Math.abs(delta) < 0.1) ) {return false};
             //console.log("time since last animation: ", $.now() -  lastUpdateTime);
             scrollTop = $window.scrollTop();
             finalScroll = scrollTop + (delta<0 ? winHeight : -winHeight);
-            scroll_tween.updateTo({scrollTo : { y: finalScroll }} , true);
+
+            scroll_tween.updateTo({scrollTo : { y: finalScroll, autoKill:false }} , true);
             scroll_tween.restart();
             lastUpdateTime = $.now();
-            return false;
+
             //console.log('setting new scroll target');
         }else if ((Math.abs(delta) >= 2.5) && ($.now() -  lastUpdateTime > 600)){
+            //return false;
             //if if the user scrolled again while the tween is playing, we update the scroll
             finalScroll = finalScroll + (delta<0 ? winHeight : -winHeight);
-            scroll_tween.updateTo({scrollTo : { y: finalScroll }} , true);
+            scroll_tween.updateTo({scrollTo : { y: finalScroll, autoKill:false }} , true);
             lastUpdateTime = $.now();
             console.log('updating scroll target');
-            return false;
+
         }
+
         //console.log('just scrolling bro');
         return false;
     });
@@ -150,8 +160,10 @@ $( document ).ready(function() {
         wiring_tl.restart();
     }, {one: false});
 
-
+var soundAnimationTimer
     $('.appear_mark').appear(function(){
+
+        clearTimeout(soundAnimationTimer);
         var appeared_block_id = $(this).parent().attr('id');
         //console.log($(this).parent().attr('id'));
         $('#scrollNav > ul > li > a').each(function(){
@@ -164,103 +176,92 @@ $( document ).ready(function() {
         });
 
         if(appeared_block_id == 'sound'){
-            /*Runs the animation that lets the user know the content is hoverable*/
             $('.isotopeSummary').removeClass('enableHover');
             $('.animated_bg_img').removeClass('animated_bg_img_hover');
-            //$('.animated_bg_img').off( "mouseenter" );
+            soundAnimationTimer = setTimeout(function(){
+                //The timeout causes the scroll animation to run smoother
+                var sound_tl = new TimelineLite({onComplete:function(){
+                    $('.isotopeSummary').addClass('enableHover');
+                    $('.animated_bg_img').addClass('animated_bg_img_hover');
 
-            var sound_tl = new TimelineLite({onComplete:function(){
-                $('.isotopeSummary').addClass('enableHover');
-                $('.animated_bg_img').addClass('animated_bg_img_hover');
+                    $('.animated_bg_img_hover').hover(function(event){
+                        /*console.log( $(this).children(".sharp_img").attr('class'));*/
+                        //hoverIn for image tiles in gallery
+                        TweenLite.to( $(this).children(".scale_blur_img_container"), 0.4,
+                                     {css:{force3D:true, top: 0 },
+                                      ease:Power2.easeOut
+                                     });
+                        TweenLite.to( $(this).children(".scale_blur_img_container").children(".sharp_img"), 0.4,
+                                     {css:{force3D:true, scale:0.4, opacity: 0 },
+                                      ease:Power2.easeOut
+                                     });
+                        TweenLite.to( $(this).children(".scale_blur_img_container").children(".blur_img"), 0.4,
+                                     {css:{force3D:true, scale:0.4, opacity: 0.8},
+                                      ease:Power2.easeOut
+                                     });
+                    }, function(){
+                        //hoverOut for image tiles in gallery
+                        TweenLite.to( $(this).children(".scale_blur_img_container"), 0.4,
+                                     {css:{force3D:true, top: "15%" },
+                                      ease:Power2.easeOut
+                                     });
+                        TweenLite.to( $(this).children(".scale_blur_img_container").children(".sharp_img"), 0.4,
+                                     {css:{force3D:true, force3D:true, scale:1, opacity: 1},
+                                      ease:Power2.easeOut
+                                     });
+                        TweenLite.to( $(this).children(".scale_blur_img_container").children(".blur_img"), 0.4,
+                                     {css:{force3D:true, scale:1, opacity: 0},
+                                      ease:Power2.easeOut
+                                     });
+                    });
 
-                $('.animated_bg_img_hover').hover(function(event){
-                    console.log( $(this).children(".sharp_img").attr('class'));
-                    //hoverIn for image tiles in gallery
-                    TweenLite.to( $(this).children(".scale_blur_img_container"), 0.4,
-                                 {css:{force3D:true, top: 0 },
-                                  ease:Power2.easeOut
-                                 });
-                    TweenLite.to( $(this).children(".scale_blur_img_container").children(".sharp_img"), 0.4,
-                                 {css:{force3D:true, force3D:true, scale:0.4, opacity: 0 },
-                                  ease:Power2.easeOut
-                                 });
-                    TweenLite.to( $(this).children(".scale_blur_img_container").children(".blur_img"), 0.4,
-                                 {css:{force3D:true, scale:0.4, opacity: 0.8},
-                                  ease:Power2.easeOut
-                                 });
-                }, function(){
-                    //hoverOut for image tiles in gallery
-                    TweenLite.to( $(this).children(".scale_blur_img_container"), 0.4,
-                                 {css:{force3D:true, top: "15%" },
-                                  ease:Power2.easeOut
-                                 });
-                    TweenLite.to( $(this).children(".scale_blur_img_container").children(".sharp_img"), 0.4,
-                                 {css:{force3D:true, force3D:true, scale:1, opacity: 1},
-                                  ease:Power2.easeOut
-                                 });
-                    TweenLite.to( $(this).children(".scale_blur_img_container").children(".blur_img"), 0.4,
-                                 {css:{force3D:true, scale:1, opacity: 0},
-                                  ease:Power2.easeOut
-                                 });
-                });
-
-                /*
-                $('.animated_bg_img_hover').hover(function(event){
-                    //hoverIn for image tiles in gallery
-                    TweenLite.to( $(this), 0.3,
-                                 {css:{backgroundSize:'40% 40%' },
-                                  ease:Power2.easeOut
-                                 });
-                }, function(){
-                    //hoverOut for image tiles in gallery
-                    TweenLite.to($(this), 0.3,
-                                 {css:{backgroundSize:'70% 70%' },
-                                  ease:Power2.easeOut
-                                 });
-                });
-                */
-            }, delay:0.5});
+                }, delay:0.5});
 
 
-            sound_tl
-            //Driver
-            .to($('#driver'), 0.3,
-                { css: {force3D:true, transform:'translateX(0px) translateY(-90px) scale(1)' }, ease: Linear.ease})
-            .to($('#driver'), 0.3,
-                { css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' }, ease: Linear.ease})
-            .fromTo($('#driver > .isotopeDetailed'), 0.2,
-                    { css: {opacity:1}},
-                    { css: {opacity:0}, ease: Expo.easeOut, onComplete: function(){
-                        $('#driver > .isotopeDetailed').css('opacity','');
-                    }},
-                    0.3)
-            //Eclosure
-            .to($('#enclosure'), 0.3,
-                { css: {force3D:true, transform:'translateX(0px) translateY(-90px) scale(1)' }, ease: Linear.ease}, 0.1)
+                sound_tl
+                //Driver
+                    .to($('#driver'), 0.3,
+                        { css: {force3D:true, transform:'translateX(0px) translateY(-90px) scale(1)' }, ease: Linear.ease})
+                    .to($('#driver'), 0.3,
+                        { css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' }, ease: Linear.ease})
+                    .fromTo($('#driver > .isotopeDetailed'), 0.2,
+                            { css: {opacity:1}},
+                            { css: {opacity:0}, ease: Expo.easeOut, onComplete: function(){
+                                $('#driver > .isotopeDetailed').css('opacity','');
+                            }},
+                            0.3)
+                //Eclosure
+                    .to($('#enclosure'), 0.3,
+                        { css: {force3D:true, transform:'translateX(0px) translateY(-90px) scale(1)' }, ease: Linear.ease}, 0.1)
 
-            .to($('#enclosure'), 0.3,
-                { css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' }, ease: Linear.ease}, 0.4)
+                    .to($('#enclosure'), 0.3,
+                        { css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' }, ease: Linear.ease}, 0.4)
 
-            .fromTo($('#enclosure > .isotopeDetailed'), 0.2,
-                    { css: {opacity:1}},
-                    { css: {opacity:0}, ease: Linear.ease, onComplete: function(){
-                        $('#enclosure > .isotopeDetailed').css('opacity','');
-                    }},
-                    0.4)
-            .to($('#amplifier'), 0.3,
-                { css: {force3D:true, transform:'translateX(0px) translateY(-90px) scale(1)' }, ease: Linear.ease}, 0.2)
+                    .fromTo($('#enclosure > .isotopeDetailed'), 0.2,
+                            { css: {opacity:1}},
+                            { css: {opacity:0}, ease: Linear.ease, onComplete: function(){
+                                $('#enclosure > .isotopeDetailed').css('opacity','');
+                            }},
+                            0.4)
+                    .to($('#amplifier'), 0.3,
+                        { css: {force3D:true, transform:'translateX(0px) translateY(-90px) scale(1)' }, ease: Linear.ease}, 0.2)
 
-            .to($('#amplifier'), 0.3,
-                { css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' }, ease: Linear.ease}, 0.5)
+                    .to($('#amplifier'), 0.3,
+                        { css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' }, ease: Linear.ease}, 0.5)
 
-            .fromTo($('#amplifier > .isotopeDetailed'), 0.2,
-                    { css: {opacity:1}},
-                    { css: {opacity:0}, ease: Linear.ease, onComplete: function(){
-                        $('#amplifier > .isotopeDetailed').css('opacity','');
-                    }},
-                    0.5)
-            .timeScale( 1 );
+                    .fromTo($('#amplifier > .isotopeDetailed'), 0.2,
+                            { css: {opacity:1}},
+                            { css: {opacity:0}, ease: Linear.ease, onComplete: function(){
+                                $('#amplifier > .isotopeDetailed').css('opacity','');
+                            }},
+                            0.5)
+                    .timeScale( 1 );
+            }, 1000);
+
+            //Runs the animation that lets the user know the content is hoverable
+
         }
+
 
     }, {one: false, accX: 0, accY: -2});
 
@@ -290,7 +291,7 @@ $( document ).ready(function() {
             var viewportTop = $(this).offset().top - $(window).scrollTop()
             if((viewportTop > 0) && (viewportTop < winHeight/2)){
                 TweenMax.to($window, 0.5, {
-                    scrollTo : { y: $(this).offset().top, autoKill:true },
+                    scrollTo : { y: $(this).offset().top, autoKill:false },
                     ease: Power2.easeInOut,
                     overwrite: "all",
                     onComplete: function(){
@@ -298,7 +299,7 @@ $( document ).ready(function() {
                 })
             }else if((viewportTop < winHeight) && (viewportTop > winHeight/2)){
                 TweenMax.to($window, 0.5, {
-                    scrollTo : { y: $(this).offset().top - winHeight, autoKill:true },
+                    scrollTo : { y: $(this).offset().top - winHeight, autoKill:false },
                     ease: Power2.easeInOut,
                     overwrite: "all",
                     onComplete: function(){
