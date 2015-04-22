@@ -170,6 +170,8 @@ var soundAnimationTimer
             var href = $(this).attr('href');
             if(href.indexOf(appeared_block_id) >= 0){
                 $(this).addClass('current');
+                //Tracking block views
+                ga('send', 'event', 'ViewTalismanBlock', 'view',  appeared_block_id);
             }else{
                 $(this).removeClass('current');
             }

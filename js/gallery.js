@@ -34,7 +34,7 @@ $(document).ready(function() {
             });
         } else{
 
-            ga('send', 'event', 'GalleryImage', 'click');
+
             //Zoom in
             //Storing the zoom state. doesn't make sense to store this in this element, but it does the job
             //$(this).data('zoomData' , {isZoomed : true});
@@ -78,6 +78,8 @@ $(document).ready(function() {
                     });
                 }
             });
+            //Tracking clicks on image tiles
+            ga('send', 'event', 'GalleryImage', 'click',  hires_src);
 
         }
 
