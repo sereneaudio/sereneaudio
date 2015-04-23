@@ -477,7 +477,8 @@ body{
     width: auto;
     height: auto;
     top: 50%;
-    margin-top: -10%;
+    transform: translate(0, -50%);
+    /*margin-top: -10%;*/
     left:0rem;
     color: gray;
     //border-radius: 2px;
@@ -565,6 +566,9 @@ body{
 
 .section{
     overflow:hidden;
+    -webkit-transition: height 0.8s;
+    -moz-transition: height 0.8s;
+    transition: height 0.8s;
 }
 
 .verticalLine {
