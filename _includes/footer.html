@@ -23,4 +23,105 @@
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
 
+    if (document.referrer.match(/google\./gi) && document.referrer.match(/cd/gi)) {
+        /*http://cutroni.com/blog/2013/01/14/a-new-method-to-track-keyword-ranking-using-google-analytics/*/
+        var myString = document.referrer;
+        var r        = myString.match(/cd=(.*?)&/);
+        var rank     = parseInt(r[1]);
+        var kw       = myString.match(/q=(.*?)&/);
+
+        if (kw[1].length > 0) {
+            var keyWord  = decodeURI(kw[1]);
+        } else {
+            keyWord = "(not provided)";
+        }
+        var p        = document.location.pathname;
+        ga('send', 'event', 'RankTracker', keyword,  p, rank, {'nonInteraction': 1});
+    }
+
+    jQuery(function($) {
+        // Debug flag
+        var debugMode = false;
+
+        // Default time delay before checking location
+        var callBackTime = 100;
+
+        // # px before tracking a reader
+        var readerLocation = 150;
+
+        // Set some flags for tracking & execution
+        var timer = 0;
+        var scroller = false;
+        var endContent = false;
+        var didComplete = false;
+
+        // Set some time variables to calculate reading time
+        var startTime = new Date();
+        var beginning = startTime.getTime();
+        var totalTime = 0;
+
+        // Get some information about the current page
+        var pageTitle = document.title;
+
+        // Track the aticle load
+        if (!debugMode) {
+            //_gaq.push(['_trackEvent', 'Reading', 'ArticleLoaded', '', , true]);
+            ga('send', 'event', 'Reading', 'PageLoaded',  '', 0, {'nonInteraction': 1});
+        } else {
+            alert('The page has loaded. Woohoo.');
+        }
+
+        // Check the location and track user
+        function trackLocation() {
+            bottom = $(window).height() + $(window).scrollTop();
+            height = $(document).height();
+
+            // If user starts to scroll send an event
+            if (bottom > readerLocation && !scroller) {
+                currentTime = new Date();
+                scrollStart = currentTime.getTime();
+                timeToScroll = Math.round((scrollStart - beginning) / 1000);
+                if (!debugMode) {
+                    //_gaq.push(['_trackEvent', 'Reading', 'StartReading', '', timeToScroll]);
+                    ga('send', 'event', 'Reading', 'StartReading',  '', timeToScroll);
+                } else {
+                    alert('started reading ' + timeToScroll);
+                }
+                scroller = true;
+            }
+
+            // If user has hit the bottom of page send an event
+            if (bottom >= height && !didComplete) {
+                currentTime = new Date();
+                end = currentTime.getTime();
+                totalTime = Math.round((end - scrollStart) / 1000);
+                if (!debugMode) {
+                    if (totalTime < 60) {
+                        //_gaq.push(['_setCustomVar', 5, 'ReaderType', 'Scanner', 2]);
+                        ga('set', 'dimension1', 'Scanner'); //I set up dimension1 to be readerType in GA
+                    } else {
+                        //_gaq.push(['_setCustomVar', 5, 'ReaderType', 'Reader', 2]);
+                        ga('set', 'dimension1', 'Reader'); //I set up dimension1 to be readerType in GA
+                    }
+                    //_gaq.push(['_trackEvent', 'Reading', 'PageBottom', pageTitle, totalTime]);
+                    ga('send', 'event', 'Reading', 'PageBottom',  pageTitle, totalTime);
+                } else {
+                    alert('bottom of page '+totalTime);
+                }
+                didComplete = true;
+            }
+        }
+
+        // Track the scrolling and track location
+        $(window).scroll(function() {
+            if (timer) {
+                clearTimeout(timer);
+            }
+
+            // Use a buffer so we don't call trackLocation too often.
+            timer = setTimeout(trackLocation, callBackTime);
+        });
+    });
+
+
 </script>

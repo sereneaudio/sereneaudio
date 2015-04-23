@@ -123,12 +123,13 @@ permalink: mystery_speakers.html
                                     </div>
 
                                     <div style="padding-left: 0px;height: 40px;clear: both">
-                                        <a style=
-                                           "float: left;width: 50%;max-width: 140px;box-sizing: border-box;padding-right: 5px;text-decoration: none"
-                                           class="qp_btna" href="#"><input name="qp_b292396" style=
-                                                                           "width: 100%;height: 40px;font-family: 'concourse-t3', sans-serif, Arial;font-size: 16px;color: rgb(255, 255, 255);cursor: pointer;border: 0px;-webkit-appearance: none;border-radius: 0px;background-color: rgb(78, 189, 74)"
-                                                                           type="submit" btype="v" value="Vote" /></a><a style=
-                                                                                                                         "float: left;width: 50%;max-width: 140px;box-sizing: border-box;padding-left: 5px;text-decoration: none"
+                                        <a style="border: none; float: left;width: 50%;max-width: 140px;box-sizing: border-box;padding-right: 5px;text-decoration: none"
+                                           class="qp_btna" href="#">
+                                            <input name="qp_b292396" style="width: 100%;height: 40px;font-family: 'concourse-t3', sans-serif, Arial;font-size: 16px;color: rgb(255, 255, 255);cursor: pointer;border: 0px;-webkit-appearance: none;border-radius: 0px;background-color: rgb(78, 189, 74)"
+                                                                           type="submit" btype="v" value="Vote"
+                                                   onclick="ga('send', 'event', 'form', 'submit',  'mystery product vote');" />
+                                        </a>
+                                        <a style="float: left;width: 50%;max-width: 140px;box-sizing: border-box;padding-left: 5px;text-decoration: none"
                                                                                                                          class="qp_btna" href="#"></a>
                                     </div><a id="qp_a292396" style=
                                              "float:right;font-family:Arial;font-size:10px;color:rgb(0,0,0);text-decoration:none"
@@ -192,7 +193,8 @@ permalink: mystery_speakers.html
                                     </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_bca13a7f717c1621a9ba4647c_98e4f73548" tabindex="-1" value=""></div>
                                     <div class="clear">
-                                        <input style="margin-top:1rem; font-size:2rem" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                        <input style="margin-top:1rem; font-size:2rem" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"
+                                               onclick="ga('send', 'event', 'form', 'submit',  'email subscription');">
                                     </div>
                                 </div>
                             </form>
