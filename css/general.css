@@ -225,14 +225,6 @@ hr { display: block; height: 1px;
     width: 100%;
     top:0;
     left:0;
-    //background: -webkit-linear-gradient(-90deg, rgba(255, 151, 33, 0.47), rgba(255, 166, 125, 0.32), rgba(0, 0, 0, 0.0));
-    /background: -webkit-linear-gradient(-92deg, rgb(255, 168, 68), rgb(237, 184, 101), #dea740);
-    //background: -webkit-linear-gradient(top, #ffd189, rgb(255, 209, 137), #ffd189);
-    //background: -o-linear-gradient(top, #ff9721, #a44210, black);
-    //background: -moz-linear-gradient(top, #ff9721, #a44210, black);
-    //background: linear-gradient(top, #ff9721, #a44210, black);
-    /box-shadow: 0px -3px 10px rgba(42, 24, 5, 0.21) inset;
-    /background-color:#d1a049;
     z-index: 1;
 }
 
@@ -261,57 +253,21 @@ body{
 }
 
 #application {
-    /*
-    background: -webkit-linear-gradient(right, #ff9721, #a44210, black);
-    background: -o-linear-gradient(right, #ff9721, #a44210, black);
-    background: -moz-linear-gradient(right, #ff9721, #a44210, black);
-    background: linear-gradient(right, #ff9721, #a44210, black);
-    */
-    background: -webkit-linear-gradient(-75deg, #F4B236 10%, #D7744C 90%);
-    background: -webkit-linear-gradient(180deg, #CFA380 10%, #86685D 90%);
-    background: -webkit-linear-gradient(250deg,#CFA380 10%, #86685D 40%, black 80%);
     background: -webkit-linear-gradient(250deg,#CFA380 10%, #86685D 30%, #150814 80%);
+    background: -o-linear-gradient(250deg,#CFA380 10%, #86685D 30%, #150814 80%);
+    background: -moz-linear-gradient(250deg,#CFA380 10%, #86685D 30%, #150814 80%);
+    background: linear-gradient(250deg,#CFA380 10%, #86685D 30%, #150814 80%);
     background-color: #F4B236;
-    background-color: #D7744C;
-    background-color: #F7E15D;
-    background-color: #F3E8BB;
-    background-color: #8BB8A5;
-
-    background-color: #F4B236;
-
-    /*Sunny Venice*/
-
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2) inset;
     z-index: 2;
 }
 
 #sound {
-    //background-color: grey;
-    /*
-    background: -webkit-linear-gradient(45deg, rgb(65, 46, 76), rgb(165, 99, 101), rgb(179, 156, 104));
-    background: -o-linear-gradient(45deg, rgb(65, 46, 76), rgb(165, 99, 101), rgb(179, 156, 104));
-    background: -moz-linear-gradient(45deg, rgb(65, 46, 76), rgb(165, 99, 101), rgb(179, 156, 104));
-    background: linear-gradient(180deg, rgb(65, 46, 76), rgb(165, 99, 101), rgb(179, 156, 104));
 
-    */
-    //background: linear-gradient(0deg, rgb(18, 18, 18), rgb(134, 107, 84), rgb(114, 89, 71));
-
-
-    //background: -webkit-linear-gradient(right, #ff9721, #a44210, black);
-    //background: linear-gradient(right, #ff9721, #a44210, black);
-
-
-    background-color: #F4B236;
-    background-color: #D7744C;
-    background-color: #F7E15D;
-    background-color: #F3E8BB;
-    background-color: #8BB8A5;
 
     background-image: url({{ site.baseurl }}/images/product_images/talisman/CSD_BG_light.png);
     background-size:cover;
     background-position: center;
-    background-color: #D7744C;
-    background-color: #24201c;
     background-color: #211917;
     z-index: 2;
 }
@@ -324,39 +280,14 @@ body{
 }
 
 #aesthetic {
-    -background-image: url('{{ site.baseurl }}/images/product_images/talisman/DSC_4242-cropped.jpg');
-    -background-size: cover;
-    -background-position: center;
-    /*
-    background-color: #F4B236;
-    background-color: #D7744C;
-    background-color: #F7E15D;
-    background-color: #F3E8BB;
-    background-color: #8BB8A5;
-    */
-
-    //background: -webkit-linear-gradient(-115deg, #F4B236 50%, #F7E15D);
-    background: -webkit-linear-gradient(-20deg, #C48E60 0%, #211917 80%);
     background: -webkit-linear-gradient(-20deg, #C48E60 0%, #311818 80%,  #211917 100% );
-
-    //background-color: #ef4723;
-    //background-color: #f75531;
+    background: -o-linear-gradient(-20deg, #C48E60 0%, #311818 80%,  #211917 100% );
+    background: -moz-linear-gradient(-20deg, #C48E60 0%, #311818 80%,  #211917 100% );
+    background: linear-gradient(100deg, #C48E60 0%, #311818 80%,  #211917 100% );
     z-index: 2;
 }
 
 #spec {
-    background-image: url({{ site.baseurl }}/images/spec_bg.jpg);
-    background-image: url({{ site.baseurl }}/images/spec_bg_transparent.png);
-    background-image: url({{ site.baseurl }}/images/spec_bg_light_transparent.png);
-    -background: -webkit-linear-gradient(right, #ff9721, #a44210, black);
-
-    background-color: #8BB8A5;
-    background-color: #D6A97F;
-    background-color: #ba875c;
-    background-color: #241001;
-
-
-    background-color: #86685D;
     background-color: #211917;
     z-index: 2;
 }
@@ -406,16 +337,6 @@ body{
 
 
 #reviews {
-    //background: -webkit-linear-gradient(90deg, #F4B236 10%, #D7744C 90%);
-    //background: -webkit-linear-gradient(90deg, #F4B236 10%, #b96b42 90%);
-    //background: -webkit-linear-gradient(180deg, #CFA380 10%, #86685D 90%);
-    //background: -webkit-linear-gradient(250deg,#CFA380 10%, #86685D 40%, black 80%);
-    //background: -webkit-linear-gradient(250deg,#CFA380 10%, #86685D 30%, #150814 80%);
-    background-color: #b96b42;
-    background-color: #f4d6b4;
-    //background: -webkit-linear-gradient(90deg,#86685D 30%, #150814 90%);
-    //background: -webkit-linear-gradient(90deg,#86685D 10%, #210e1f 90%);
-    background: -webkit-linear-gradient(45deg,#ddba92 10%, #f4d6b4 90%);
     background: radial-gradient(farthest-corner at 50% 0%, #d8c1a7, #e3b98e, #af8b63);
     z-index: 2;
 }
@@ -426,14 +347,6 @@ body{
 }
 
 #buy{
-    //background-color: #fff8ea;
-    //background-color: #41696e;
-    //background: -webkit-linear-gradient(45deg,#fff3dc 10%, #f8f4ec 90%);
-    //background: radial-gradient(farthest-corner at 32% 50%, #8e7861, #8b7054 30%, #1a1021);
-    //background: radial-gradient(farthest-corner at 50% 50%, #fff8ea 50%,  #f8e9d3);
-    //background: radial-gradient(farthest-corner at 50% 50%, #5d7884 50%,  #41696e);
-    //background-image: url('{{ site.baseurl }}/images/noisy-texture-200x200-o3-d19-c-f5eee1-t1.png');
-    //background-image: url('{{ site.baseurl }}/images/product_images/talisman/DSC_4116.jpg');
     background-color: white;
     background-color: #fffefb;
     background-position: left;
@@ -516,9 +429,11 @@ body{
 }
 
 .xs_scrollBar .scrollToButton a{
-    font-size: 4rem;
+    font-family: serif;
+    font-size: 8vmin;
     line-height: 2rem;
     display: block;
+
 }
 .scrollToButton > a{
 
@@ -656,12 +571,6 @@ body{
 
 
 .buy-btn {
-    //background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3c3c3c), color-stop(1, #000) );
-    //background:-moz-linear-gradient( center top, #3c3c3c 5%, #000 100% );
-    //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c3c3c', endColorstr='#000');
-
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
     border-radius:5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4) inset;
     text-indent:0px;
@@ -712,10 +621,6 @@ body{
 }
 
 .buy-btn:active {
-    //background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000), color-stop(1, #3c3c3c) );
-    //background:-moz-linear-gradient( center top, #000 5%, #3c3c3c 100% );
-    //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000', endColorstr='#3c3c3c');
-    //background-color:#000;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4) ;
     text-decoration:none;
     text-align:center;
@@ -984,7 +889,6 @@ a:hover>.enableHover2, div:hover>.enableHover2{
     border-top-right-radius: 10px;
     border: 1px solid gainsboro;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.95) 70% , rgba(255, 255, 255, 0.9) 100%);
-    -background: linear-gradient(0deg, rgba(255, 182, 96, 0.8) 70% , rgba(255, 255, 255, 0.5) 100%);
     -webkit-transition: opacity .4s;
     -moz-transition: opacity .4s;
     transition: opacity .4s;
@@ -994,16 +898,10 @@ a:hover>.enableHover2, div:hover>.enableHover2{
 div:hover>.enableHover2>.gradient2:after {
     opacity: 1;
 }
-
-
-
-
-//[class*="col"] { background: rgba(255, 0, 0, 0.3); }
-//[class*="col"] [class*="col"] { background: rgba(255, 0, 0, 0.3); }
-
-
-
-
+/*
+[class*="col"] { background: rgba(255, 0, 0, 0.3); }
+[class*="col"] [class*="col"] { background: rgba(255, 0, 0, 0.3); }
+*/
 
 .home_content h3, .home_content h1{
 
@@ -1023,14 +921,6 @@ div:hover>.enableHover2>.gradient2:after {
     position: relative;
 }
 
-
-
-.shade_gradient {
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.09) 0, rgba(0, 0, 0, .0) 50%, rgba(0, 0, 0, .5) 100%);
-}
-
-
-
 .animated_bg_img > img {
 
     background-size:auto 70%;
@@ -1043,6 +933,7 @@ div:hover>.enableHover2>.gradient2:after {
     //-webkit-backface-visibility: hidden;
     outline: 1px solid transparent;
 }
+
 div.animated_bg_img_hover:hover > img {
     /*
     background-size:auto 40%;
@@ -1050,11 +941,6 @@ div.animated_bg_img_hover:hover > img {
     */
     //opacity: 0.3;
 }
-
-
-
-
-
 
 .mc-field-group > input {
     width:100%;
