@@ -31,7 +31,7 @@ p.introduction:first-letter {
     margin-left: 2rem;
     padding-left: 0rem;
     list-style-position: outside;
-    font-family: "concourse-t3";
+    font-family: "concourse-t3", 'Helvetica Neue', Arial, sans-serif;
     -moz-font-feature-settings: 'liga=1', 'ss01=0';
     -moz-font-feature-settings: 'liga' 1, 'ss01' 0;
     -webkit-font-feature-settings: 'liga' 1, 'ss01' 0;
@@ -46,9 +46,7 @@ p.introduction:first-letter {
 }
 
 #post-content h2{
-    font-family: 'Lato', sans-serif;
-    font-family: 'equity-text-b', sans-serif;
-    font-family: 'concourse-t6', sans-serif;
+    font-family: 'concourse-t6', 'Helvetica Neue', Arial, sans-serif;
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 400;
@@ -62,8 +60,12 @@ figcaption {
     font-size: 2.0rem;
     text-align: center;
     list-style-position: outside;
-    font-family: "concourse-t3";
+    font-family: "concourse-t3",'Helvetica Neue', Arial, sans-serif;
     -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
 }
 .review-quotation {
     font-size: 2rem;
@@ -78,7 +80,7 @@ figcaption {
     margin-bottom: 3rem;
     margin-top: 1rem;
     text-align: right;
-    font-family: 'concourse-t3', sans-serif;
+    font-family: 'concourse-t3', 'Helvetica Neue', Arial, sans-serif;
 
     font-size: 2.0rem;
     font-style: normal;
@@ -86,4 +88,10 @@ figcaption {
     line-height: 100%;
     letter-spacing: 0.1rem;
     -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
 }
+
+

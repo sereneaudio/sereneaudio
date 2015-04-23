@@ -28,21 +28,8 @@ div{
 }
 
 h1{
-    font-family: 'myBaskerville';
-    //font-family: 'Baskerville-SemiBold','Baskerville Old Face','Hoefler Text','Garamond','Times New Roman',serif;
-    //font-family: 'Libre Baskerville', serif;  /*Too bulky for display*/
-    //font-family: 'Playfair Display SC', serif;
-    //font-family: 'Sorts Mill Goudy', serif;
-    //font-family: 'Merriweather', serif;
-    //font-family: 'Cinzel', serif;
-    //font-family: 'Halant', serif;
     font-variant: small-caps;
-
-    font-family: 'myBaskerville_SemiBold';
-    font-family: 'equity-text-b';
-    font-family: 'concourse-t3', serif;
-    font-family: 'concourse-t4', serif;
-    /font-family: 'Freight Sans Pro Book', sans-serif;
+    font-family: 'concourse-t4','Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.06rem;
 
     font-size: 4.0rem;
@@ -50,10 +37,7 @@ h1{
     font-weight: normal;
 }
 h2 {
-    font-family: 'Lato', sans-serif;
-    font-family: 'myBaskerville', serif;
-    font-family: 'freight-text-pro', sans-serif;
-
+    font-family: 'freight-text-pro', georgia, serif;
     font-style: normal;
     font-weight: 200;
     font-size: 2.2rem;
@@ -72,25 +56,30 @@ body:not(:-moz-handler-blocked) .text_shadow {
 }
 
 h3{
-    font-family: 'Lato', sans-serif;
-    font-family: 'equity-text-b', sans-serif;
-    font-family: 'concourse-t3', sans-serif;
-    /font-family: 'concourse-t2', sans-serif;
-    /font-family: 'Freight Sans Pro Book', sans-serif;
-    //font-family: 'Fira Sans', sans-serif;
+
+    font-family: 'concourse-t3', 'Helvetica Neue', Arial, sans-serif;
+
     font-size: 2.3rem;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
     -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
 }
 
 h4, .readmore{
-    font-family: 'concourse-t3', sans-serif;
+    font-family: 'concourse-t3', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.08rem;
     font-kerning:normal ;
     font-size: 1.7rem;
     -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
 }
 
 .readmore{
@@ -102,34 +91,24 @@ h4, .readmore{
 
 
 h5{
-    //font-family: 'Lato', sans-serif;
-    font-family: 'concourse-t3', sans-serif;
+    font-family: 'concourse-t3', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.08rem;
     font-kerning:normal ;
     font-size: 1.4rem;
     -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
 }
 
 p {
-    /*font-family: 'Libre Baskerville', serif;
 
-    //font-family: 'myBaskerville', serif;
-    //font-family: 'Lato', serif;
-    //font-family: 'equity-text-b', serif;
-    //font-family: 'concourse-t3', sans-serif;
-    //font-family: 'concourse-t2', sans-serif;
-    //font-family: 'Freight Sans Pro Book', sans-serif;
-    //font-family: 'Sabon Pro Roman', sans-serif;
-    //font-family: 'georgia', sans-serif;
-    //font-family: 'mySabon_pro_roman', sans-serif;
-
-    //-webkit-font-feature-settings: 'ss02' 1;
-    */
     font-style: normal;
     font-weight: 400;
     line-height: 145%;
     font-size: 2.0rem;
-    font-family: 'freight-text-pro', serif;
+    font-family: 'freight-text-pro', georgia, serif;
 
     font-smoothing : antialiased;
     -webkit-font-smoothing:antialiased;
@@ -141,7 +120,7 @@ p > strong {
     font-weight: 700;
     line-height: 145%;
     font-size: 2rem;
-    font-family: 'freight-text-pro', serif;
+    font-family: 'freight-text-pro', georgia, serif;
 }
 
  li {
@@ -149,7 +128,7 @@ p > strong {
      //margin-left: 2rem;
      padding-left: 0rem;
      list-style-position: outside;
-     font-family: "concourse-t3";
+     font-family: "concourse-t3",'Helvetica Neue', Arial, sans-serif;
      -moz-font-feature-settings: 'liga=1', 'ss01=0';
      -moz-font-feature-settings: 'liga' 1, 'ss01' 0;
      -webkit-font-feature-settings: 'liga' 1, 'ss01' 0;
@@ -202,8 +181,7 @@ i{
 }
 
 .navbar-nav > li > a {
-    font-family: 'Lato', serif;
-    font-family: 'concourse-t2', sans-serif;
+    font-family: 'concourse-t2', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.06rem;
     font-style: normal;
     font-weight: 300;
@@ -212,8 +190,7 @@ i{
 }
 
 .scrollToButton > a {
-    font-family: 'Lato', serif;
-    font-family: 'concourse-t4', sans-serif;
+    font-family: 'concourse-t4', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.05rem;
     font-size: 1.4rem;
 }
@@ -403,8 +380,7 @@ body{
 }
 #spec h4{
     color:#e5e5e5;
-    font-family: 'Lato', sans-serif;
-    font-family: 'concourse-t2', sans-serif;
+    font-family: 'concourse-t2', 'Helvetica Neue', Arial, sans-serif;
     font-size: 1.3rem;
     letter-spacing: 0.08rem;
     font-style: normal;
@@ -690,7 +666,7 @@ body{
     color:#ffd189;
     text-shadow:1px 1px 3px rgba(0, 0, 0, 0.72);
 
-    font-family: 'freight-text-pro', serif;
+    font-family: 'freight-text-pro', georgia, serif;
     font-size:1.8rem;
     font-weight:400;
     font-style:normal;
