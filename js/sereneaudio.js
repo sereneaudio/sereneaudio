@@ -36,6 +36,13 @@ $( document ).ready(function() {
         var scroll_tween = TweenMax.to($window, 1, {
             scrollTo : { y: 0, autoKill:false },
             ease: Power2.easeOut,
+            onComplete:function(){
+                var current_block = $('#scrollNav a.current').attr('href');
+                // if supported by the browser we can even update the URL.
+                if (window.history && window.history.pushState) {
+                    history.pushState("", document.title, current_block);
+                }
+            }
         });
 
         scroll_tween.pause();
