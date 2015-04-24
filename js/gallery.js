@@ -34,7 +34,6 @@ $(document).ready(function() {
             });
         } else{
 
-
             //Zoom in
             //Storing the zoom state. doesn't make sense to store this in this element, but it does the job
             //$(this).data('zoomData' , {isZoomed : true});
@@ -44,8 +43,10 @@ $(document).ready(function() {
             var tileWidth = $(this).width();
             var tileHeight = $(this).height();
             var scaleFactor = (windowWidth/tileWidth);
+            console.log("scaleFactor: " , scaleFactor )
             //scaleFactor = Math.max( (windowWidth/tileWidth), (windowHeight/tileHeight) );
             var x_translate = ((windowWidth/2) - transformMatrix[4] - (tileWidth/2))*scaleFactor;
+            console.log('x_translate: ', x_translate );
             var y_translate = windowHeight/2 - 2*transformMatrix[5];
             //Get hi-res image url
             var hires_src = $(this).attr('data-zoomImg');

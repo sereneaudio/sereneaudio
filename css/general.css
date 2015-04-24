@@ -288,10 +288,11 @@ body{
 }
 
 #spec {
+    background-image: url({{ site.baseurl }}/images/spec_bg_transparent.png);
+    background-image: url({{ site.baseurl }}/images/spec_bg_light_transparent.png);
     background-color: #211917;
     z-index: 2;
 }
-
 
 
 #spec h5, #spec li{
