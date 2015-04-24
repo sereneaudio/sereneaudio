@@ -193,6 +193,8 @@ i{
     font-family: 'concourse-t4', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.05rem;
     font-size: 1.4rem;
+    border: none;
+    outline: 0;
 }
 
 @media (max-width: 750px ) {
@@ -431,7 +433,7 @@ body{
 
 .xs_scrollBar .scrollToButton a{
     font-family: serif;
-    font-size: 8vmin;
+    font-size: 4rem;
     line-height: 2rem;
     display: block;
 
