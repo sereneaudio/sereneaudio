@@ -35,13 +35,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    /*
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    */
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: flat;
     backface-visibility: hidden;
