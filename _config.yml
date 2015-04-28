@@ -7,8 +7,8 @@ description: > # this means to ignore newlines until "baseurl:"
     beautifully crafted desktop speakers.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.sereneaudio.com" # the base hostname & protocol for your site
-twitter_username: sereneeaudio
-github_username:  sereneeaudio
+twitter_username: sereneaudio
+github_username:  sereneaudio
 
 # Build settings
 markdown: kramdown

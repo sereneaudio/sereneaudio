@@ -52,7 +52,7 @@ This code manages the gallery block
                         alert('broken image!');
                     } else {
                         //$("#zoomedImageContainer").append(img);
-                        $("#zoomedImageContainer").prepend($('<div> <a class="galleryPinButton" href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.sereneaudio.com%2Ftalisman&media=http%3A%2F%2F'+ {{ site.baseurl | prepend: '"' | append: '" +' }} hires_src +'&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a> </div>')
+                        $("#zoomedImageContainer").prepend($('<div> <a class="galleryPinButton" href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.sereneaudio.com%2Ftalisman&media=http%3A%2F%2F'+ window.location.protocol + '//' + window.location.host + '/' {{ site.baseurl | prepend: '+"' | append: '" +' }} hires_src +'&description=Serene%20Audio%20Talisman%20Speakers" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a> </div>')
                                                            .attr({'id' : 'hiresImage'}).css({'opacity': 0, 'background-image':'url({{ site.baseurl }}'+hires_src+')', 'background-size': hires_bgSize}).addClass('imageTile'));
                         var imgLoad_tl = new TimelineLite();
                         imgLoad_tl.add(loadingIcon.animateOut()).to($('#hiresImage'), 0.5, {autoAlpha:1});
