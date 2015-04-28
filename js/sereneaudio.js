@@ -13,24 +13,13 @@ $( document ).ready(function() {
         var winHeight = $window.outerHeight();
     }
     $('.section').height(winHeight);
-
-
-
-    /*Dissable hover for better scrolling performance
-    window.addEventListener('scroll', function() {
-
-        clearTimeout(timer);
-        if(!body.classList.contains('disable-hover')) {
-            body.classList.add('disable-hover')
-        }
-
-        timer = setTimeout(function(){
-            body.classList.remove('disable-hover')
-        },500);
-    }, false);
-
-*/
-
+    setTimeout(function(){
+        /*
+        We add the transition so things don't jump around durring windows resize. Makes the resize look smoother.
+        The transition is added after page has loaded, because if it is the there when page is loading, it looks ugly.
+        */
+        $('.section').css({'transition':'height 0.8s'});
+    }, 2);
 
     if(!jQuery.browser.mobile){
         var scroll_tween = TweenMax.to($window, 1, {
@@ -339,6 +328,5 @@ $( document ).ready(function() {
             }
         });
     }
-    //TweenLite.to(window, 1, { css:{top:designOffset}, overwrite:true } );
 });
 
