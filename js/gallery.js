@@ -1,91 +1,104 @@
 ---
 ---
 
-/*
+    /*
 This code manages the gallery block
 */
-/*global $, jQuery*/
-$(document).ready(function() {
+    /*global $, jQuery*/
+    $(document).ready(function() {
     var gallery = {};
     gallery.isZoomed = false;
+    var imageTile = null;
 
     $('.gallery > div').click(function(){
+        //Zoom in
+        //Storing the zoom state. doesn't make sense to store this in this element, but it does the job
+        //$(this).data('zoomData' , {isZoomed : true});
         var windowHeight = $(window).height(),
             windowWidth = $(window).width();
+        imageTile = $(this);
+        gallery.isZoomed = true;
+        //calculating the scale and translate for the image we are going to zoomed on
+        var transformMatrix = matrixToArray(imageTile.css('transform'));
+        var tileWidth = imageTile.width();
+        var tileHeight = imageTile.height();
+        var scaleFactor = (windowWidth/tileWidth);
+        console.log("scaleFactor: " , scaleFactor )
+        //scaleFactor = Math.max( (windowWidth/tileWidth), (windowHeight/tileHeight) );
+        var x_translate = ((windowWidth/2) - transformMatrix[4] - (tileWidth/2))*scaleFactor;
+        console.log('x_translate: ', x_translate );
+        var y_translate = windowHeight/2 - 2*transformMatrix[5];
+        //Get hi-res image url
+        var hires_src = imageTile.attr('data-zoomImg');
+        var hires_bgSize = imageTile.attr('data-bgSize');
+        var tl = new TimelineLite();
+        tl.to(imageTile.children('.imageTile'), 0.3, {
+            autoAlpha : 0,
+            ease: Power2.easeOut,
+            overwrite: 5
+        }).to($('.gallery'), 0.5, {
+            css: {force3D:true, transform:'translateX('+ x_translate +'px) translateY('+y_translate+'px) scale('+scaleFactor+')' },
+            ease: Power2.easeInOut,
+        }).to($('#zoomedImageContainer'), 0.3, {
+            autoAlpha : 1,
+            ease: Power2.easeOut,
+            overwrite: 5,
+            onComplete: function(){
+                spinner.spin(spinnerTarget);
+                loadingIcon.animateIn();
+                var img = $("<img />").attr({'src': {{ site.baseurl | prepend: '"' | append: '" +' }} hires_src, 'id' : 'hiresImage'}).css('opacity', 0)
+                .load(function() {
+                    if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+                        alert('broken image!');
+                    } else {
+                        //$("#zoomedImageContainer").append(img);
+                        $("#zoomedImageContainer").prepend($('<div> <a class="galleryPinButton" href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.sereneaudio.com%2Ftalisman&media=http%3A%2F%2F'+ {{ site.baseurl | prepend: '"' | append: '" +' }} hires_src +'&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a> </div>')
+                                                           .attr({'id' : 'hiresImage'}).css({'opacity': 0, 'background-image':'url({{ site.baseurl }}'+hires_src+')', 'background-size': hires_bgSize}).addClass('imageTile'));
+                        var imgLoad_tl = new TimelineLite();
+                        imgLoad_tl.add(loadingIcon.animateOut()).to($('#hiresImage'), 0.5, {autoAlpha:1});
+                    }
+                });
+            }
+        });
+        //Tracking clicks on image tiles
+        ga('send', 'event', 'GalleryImage', 'click',  hires_src);
+    });
+
+    $('#zoomedImageContainer').click(function(){
+        //Zoom out
+        var tl = new TimelineLite();
+        tl.to($('#zoomedImageContainer'), 0.3, {
+            autoAlpha : 0,
+            ease: Power2.easeOut,
+            overwrite: 5
+        }).to($('.gallery'), 0.5, {
+            css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' },
+            ease: Power2.easeInOut,
+            onComplete: function(){
+                gallery.isZoomed = false;
+                $('#hiresImage').remove();
+            }
+        }).to(imageTile.children('.imageTile'), 0.3, {
+            autoAlpha : 1,
+            ease: Power2.easeOut,
+            overwrite: 5
+        });
+    });
+
+    /*
+    $('.gallery > div').click(function(){
+
+
         if(gallery.isZoomed == true){
-            //Zoom out
-            var imageTile = $(this);
-            var tl = new TimelineLite();
-            tl.to($('#zoomedImageContainer'), 0.3, {
-                autoAlpha : 0,
-                ease: Power2.easeOut,
-                overwrite: 5
-            }).to($('.gallery'), 0.5, {
-                css: {force3D:true, transform:'translateX(0px) translateY(0px) scale(1)' },
-                ease: Power2.easeInOut,
-                onComplete: function(){
-                    gallery.isZoomed = false;
-                    $('#hiresImage').remove();
-                }
-            }).to($(this).children('.imageTile'), 0.3, {
-                autoAlpha : 1,
-                ease: Power2.easeOut,
-                overwrite: 5
-            });
+
         } else{
 
-            //Zoom in
-            //Storing the zoom state. doesn't make sense to store this in this element, but it does the job
-            //$(this).data('zoomData' , {isZoomed : true});
-            gallery.isZoomed = true;
-            //calculating the scale and translate for the image we are going to zoomed on
-            var transformMatrix = matrixToArray($(this).css('transform'));
-            var tileWidth = $(this).width();
-            var tileHeight = $(this).height();
-            var scaleFactor = (windowWidth/tileWidth);
-            console.log("scaleFactor: " , scaleFactor )
-            //scaleFactor = Math.max( (windowWidth/tileWidth), (windowHeight/tileHeight) );
-            var x_translate = ((windowWidth/2) - transformMatrix[4] - (tileWidth/2))*scaleFactor;
-            console.log('x_translate: ', x_translate );
-            var y_translate = windowHeight/2 - 2*transformMatrix[5];
-            //Get hi-res image url
-            var hires_src = $(this).attr('data-zoomImg');
-            var hires_bgSize = $(this).attr('data-bgSize');
-            var tl = new TimelineLite();
-            tl.to($(this).children('.imageTile'), 0.3, {
-                autoAlpha : 0,
-                ease: Power2.easeOut,
-                overwrite: 5
-            }).to($('.gallery'), 0.5, {
-                css: {force3D:true, transform:'translateX('+ x_translate +'px) translateY('+y_translate+'px) scale('+scaleFactor+')' },
-                ease: Power2.easeInOut,
-            }).to($('#zoomedImageContainer'), 0.3, {
-                autoAlpha : 1,
-                ease: Power2.easeOut,
-                overwrite: 5,
-                onComplete: function(){
-                    spinner.spin(spinnerTarget);
-                    loadingIcon.animateIn();
-                    var img = $("<img />").attr({'src': {{ site.baseurl | prepend: '"' | append: '" +' }} hires_src, 'id' : 'hiresImage'}).css('opacity', 0)
-                    .load(function() {
-                        if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
-                            alert('broken image!');
-                        } else {
-                            //$("#zoomedImageContainer").append(img);
-                            $("#zoomedImageContainer").prepend($("<div></div>").attr({'id' : 'hiresImage'}).css({'opacity': 0, 'background-image':'url({{ site.baseurl }}'+hires_src+')', 'background-size': hires_bgSize}).addClass('imageTile'));
-                            var imgLoad_tl = new TimelineLite();
-                            imgLoad_tl.add(loadingIcon.animateOut()).to($('#hiresImage'), 0.5, {autoAlpha:1});
-                        }
-                    });
-                }
-            });
-            //Tracking clicks on image tiles
-            ga('send', 'event', 'GalleryImage', 'click',  hires_src);
+
 
         }
 
     });
-
+*/
 
 
     function calcGalleryLayout(){

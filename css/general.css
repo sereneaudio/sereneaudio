@@ -983,3 +983,8 @@ div:hover>.enableHover2>.gradient2:after {
     display: block;
 }
 
+
+.forPinterest {
+    opacity: 0;position: absolute;top:0; left:0;
+    pointer-events: none;
+}
