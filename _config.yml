@@ -12,3 +12,4 @@ github_username:  sereneaudio
 
 # Build settings
 markdown: kramdown
+permalink: /blog/:title

@@ -1,15 +1,55 @@
 ---
 layout: default
 ---
+
+
+
+
+<div id="post-content" class="" >
+    <div  class="container-fluid" >
+        <div class="row">
+            <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-4 col-md-12 col-md-offset-6" style="padding-top:4rem">
+                <h1>{{ page.title }}</h1>
+            </div>
+        </div>
+        <div  class="row">
+            <div class="hidden-xs col-sm-3 col-sm-offset-1 col-md-5" >
+                <h2 class="">other posts</h2>
+
+                <ul class="">
+                    {% for post in site.posts %}
+                    <li>
+                        <span class="">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+                        <h5>
+                            <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                        </h5>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-0 col-md-12 ">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--
 <div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+<header class="post-header">
+<h1 class="post-title">{{ page.title }}</h1>
+<p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+</header>
 
-  <article class="post-content">
-    {{ content }}
-  </article>
+<article class="post-content">
+{{ content }}
+</article>
 
 </div>
+-->
