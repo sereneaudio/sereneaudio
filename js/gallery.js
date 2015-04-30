@@ -49,7 +49,7 @@ This code manages the gallery block
                 var img = $("<img />").attr({'src': {{ site.baseurl | prepend: '"' | append: '" +' }} hires_src, 'id' : 'hiresImage'}).css('opacity', 0)
                 .load(function() {
                     if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
-                        alert('broken image!');
+
                     } else {
                         //$("#zoomedImageContainer").append(img);
                         $("#zoomedImageContainer").prepend($('<div> <a  target="_blank" class="galleryPinButton" href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.sereneaudio.com%2Ftalisman&media='+ window.location.protocol + '//' + window.location.host {{ site.baseurl | prepend: '+"' | append: '" +' }} hires_src +'&description=Serene%20Audio%20Talisman%20Speakers" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a> </div>')

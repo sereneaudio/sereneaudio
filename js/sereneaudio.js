@@ -245,7 +245,6 @@ $( document ).ready(function() {
                 $('.animated_bg_img_hover').hover(function(event){
                     /*console.log( $(this).children(".sharp_img").attr('class'));*/
                     //hoverIn for image tiles in gallery
-                    alert('bahaba');
                     TweenLite.to( $(this).children(".scale_blur_img_container"), 0.4,
                                  {css:{force3D:true, top: 0 },
                                   ease:Power2.easeOut
