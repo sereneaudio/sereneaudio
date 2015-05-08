@@ -17,16 +17,15 @@ This code manages the gallery block
         var windowHeight = $(window).height(),
             windowWidth = $(window).width();
         imageTile = $(this);
+        imageTile.addClass('hideExpandIcon');
         gallery.isZoomed = true;
         //calculating the scale and translate for the image we are going to zoomed on
         var transformMatrix = matrixToArray(imageTile.css('transform'));
         var tileWidth = imageTile.width();
         var tileHeight = imageTile.height();
         var scaleFactor = (windowWidth/tileWidth);
-        console.log("scaleFactor: " , scaleFactor )
         //scaleFactor = Math.max( (windowWidth/tileWidth), (windowHeight/tileHeight) );
         var x_translate = ((windowWidth/2) - transformMatrix[4] - (tileWidth/2))*scaleFactor;
-        console.log('x_translate: ', x_translate );
         var y_translate = windowHeight/2 - 2*transformMatrix[5];
         //Get hi-res image url
         var hires_src = imageTile.attr('data-zoomImg');
@@ -83,6 +82,7 @@ This code manages the gallery block
             ease: Power2.easeOut,
             overwrite: 5
         });
+        imageTile.removeClass('hideExpandIcon');
     });
 
     /*

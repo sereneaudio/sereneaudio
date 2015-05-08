@@ -44,7 +44,32 @@
     height: 100%;
 }
 
-
+.gallery>div::after{
+    content: '';
+    background-image:  url( '{{ site.baseurl }}/images/icons/expand.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    z-index: 100;
+    opacity: 0.0;
+    -webkit-transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    transition: opacity .3s;
+    pointer-events: none;
+}
+.gallery>div:hover::after{
+    opacity: 0.6;
+}
+.gallery>div.hideExpandIcon::after{
+    display: none;
+}
 
 .gallery > div{
     display: inline-block;
