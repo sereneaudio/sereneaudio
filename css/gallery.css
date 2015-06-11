@@ -116,7 +116,7 @@
 }
 .imageTile4{
     background-color: bisque;
-    background-image: url({{ site.baseurl }}/images/product_images/talisman/back_gallery_03.png);
+    background-image: url({{ site.baseurl }}/images/product_images/talisman/back_02_gallery.png);
     background-size: 90%;
     background-repeat: no-repeat;
 }
