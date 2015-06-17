@@ -3,16 +3,18 @@ layout: default
 ---
 
 
-
-
 <div id="post-content" class="" >
     <div  class="container-fluid" >
-        <div class="row">
+        <div class="row" style="width:100%;position:fixed; z-index:-1; height:80vh; background-size:cover;background-position:center center;background-image:url('{{ site.baseurl }}{{ page.image.url }}')">
+        </div>
+        <div class="row" style="height:80vh;">
+        </div>
+        <div class="row" style="background-color:rgba(255, 255, 255, 0.93)">
             <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-4 col-md-12 col-md-offset-6" style="padding-top:4rem">
                 <h1>{{ page.title }}</h1>
             </div>
         </div>
-        <div  class="row">
+        <div  class="row" style="background-color:rgba(255, 255, 255, 0.93); padding-bottom:8rem">
             <div class="hidden-xs col-sm-3 col-sm-offset-1 col-md-5" >
                 <h2 class="">other posts</h2>
 
@@ -30,23 +32,27 @@ layout: default
             </div>
             <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-0 col-md-12 ">
                 {{ content }}
+                <!-- Disqus Start --->
+                {% if page.comments %}
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'sereneaudio';
+                    var disqus_identifier = '{{ page.disqus_identifier }}';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                {% endif %}
+                <!-- Disqus End --->
             </div>
         </div>
     </div>
 </div>
 
-<!-- Disqus Start --->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'sereneaudio';
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Disqus End --->

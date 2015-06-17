@@ -1,6 +1,12 @@
 ---
 layout: post
 title: Sound clarity score
+disqus_identifier : 37750f49-d42d-4838-bb2e-6a3f5ec8c4e5
+comments: true
+image:
+    url: /images/sample-spectrum.jpg
+    alt: Frequency spectrum
+
 ---
 
 
@@ -39,32 +45,33 @@ title: Sound clarity score
 <p>Its frequency spectrum looks like this:</p>
 <p class="">
     <figure>
-        <img style="width:100%" src="{{ site.baseurl }}/images/matlab-spectrum.jpg"/>
-    <figcaption>Frequency spectrum of a test wave file</figcaption>
+        <img style="width:100%" src="{{ site.baseurl }}/images/matlab-spectrum.jpg"  alt="Frequency spectrum" />
+        <figcaption>Frequency spectrum of a test wave file</figcaption>
     </figure>
 </p>
 <p class="">The test is conducted by playingback the multi-tone wave file through the device (say a DAC) at a certain volume, and we measure its output. The output will look something like this:</p>
 <p class="">
     <figure>
-        <img style="width:100%" src="{{ site.baseurl }}/images/sample-spectrum.jpg"/>
+        <img style="width:100%" src="{{ site.baseurl }}/images/sample-spectrum.jpg" alt="Frequency spectrum" />
         <figcaption>Frequency spectrum measured from a DAC</figcaption>
     </figure>
 </p>
 <p class="">As you might have noticed the output of the device has these extra tones that look like grass in between the original tones.
     They are the result of distortions in the signal.
     Now we measure the energy of these extra tones+noise.
-    This give us one number that is total distortion + noise or TD+N.
+    This give us one number that is the total distortion + noise or TD+N.
     Comparing two DACs this way, will tell you which one sounds clearer.
-     It&rsquo;s simple.
+    It&rsquo;s simple.
 </p>
 <p class="">Higher is bad. Lower is good. It&rsquo;s like golf!</p>
 <p class="">This measurement doesn't tell you everything there is to know about a DAC.
     But, it measures what I consider to be the most important in determining sound quality for a DAC, its clarity.
     So I call it the <strong>Sound Clarity Score</strong>.
 </p>
+<p>Sia</p>
 <h4 class="footnote">I also should mention I didn&rsquo;t come up with this measurement in vacuum.
     This test was inspired by the work of Deane Jensen (who was trying to achieve the same goal for vacuum tube amplifiers) and others.
-    You can find Deane's paper <a href="http://www.aes.org/e-lib/browse.cfm?elib=4719">here</a>.
+    You can find Deane's paper <a href="http://www.aes.org/e-lib/browse.cfm?elib=4719" target="_blank">here</a>.
 </h4>
 
 

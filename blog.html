@@ -7,18 +7,36 @@ permalink: blog/
 <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-6">
 
 
-    <h1 class="">Posts</h1>
+    <h1 class="" style="padding-top:5rem">Posts</h1>
 
-    <ul class="post-list">
+
         {% for post in site.posts %}
-        <li>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <h2 style="margin-top:0">
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-            </h2>
-        </li>
+        <div class="row" style="margin-bottom:5rem">
+            <div style="" class="col-xs-20">
+                <div class="" style="position:relative; height:200px">
+                    <a class="" href="{{ post.url | prepend: site.baseurl }}">
+
+                        <div class="" style="position: absolute;width: 100%;">
+                            <div  style="width:100%; height:200px; background-position:center center; background-size:cover; background-image:url('{{ site.baseurl }}{{ post.image.url }}')" ></div>
+                            <div class="gradient-overlay" style=""></div>
+                            <span class="blog-text" style="  position: absolute;top: 5px;right: 15px;">{{ post.date | date: "%b %-d, %Y" }}</span>
+                        </div>
+
+                        <div class="" style="position:absolute;bottom:0px; padding:2rem">
+                            <div style="opacity:1;">
+                                <h3 class="blog-text" style="font-variant: small-caps;">{{ post.title }}</h3>
+                                <p class="blog-text">{{ post.excerpt  | strip_html | truncatewords: 30 }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <hr/>
+            </div>
+            <!---->
+
+        </div>
         {% endfor %}
-    </ul>
+
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
