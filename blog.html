@@ -4,7 +4,8 @@ title: Serene Audio Blog
 permalink: blog/
 ---
 
-<div class="home">
+<div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-6">
+
 
     <h1 class="">Posts</h1>
 
@@ -12,8 +13,7 @@ permalink: blog/
         {% for post in site.posts %}
         <li>
             <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-            <h2>
+            <h2 style="margin-top:0">
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
         </li>

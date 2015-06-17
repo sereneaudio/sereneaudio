@@ -986,3 +986,19 @@ div:hover>.enableHover2>.gradient2:after {
     opacity: 0;position: absolute;top:0; left:0;
     pointer-events: none;
 }
+
+.footnote {
+    margin-top:5rem;
+    margin-bottom:5rem;
+    text-indent: 4rem;
+    line-height: 150%;
+    font-family: 'concourse-t3', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.08rem;
+    font-kerning:normal ;
+    font-size: 1.7rem;
+    -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
+}
