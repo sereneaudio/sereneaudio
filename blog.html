@@ -19,7 +19,7 @@ permalink: blog/
 
 
             {% for post in site.posts %}
-            <div class="row" style="margin-bottom:6rem; height:200px; position:relative">
+            <div class="row" style="padding-bottom:6rem; position:relative">
 
                 <a class="" style="width:100%" href="{{ post.url | prepend: site.baseurl }}">
 
@@ -40,12 +40,58 @@ permalink: blog/
                 <!---->
 
             </div>
-            <div class="row"><hr class="visible-xs col-xs-22 col-xs-offset-1" style="margin:2rem; " /></div>
 
             {% endfor %}
-
-
-            <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+            <div class="row">
+                <hr class="col-xs-20 col-xs-offset-2"  style="padding-top:4rem" />
+                <h1 class="" style="padding-top:4rem; text-align: center">There is more to come!</h1>
+                <p style="text-align: center">Subscribe to be notified </p>
+                <div class="col-xs-22 col-xs-offset-1 col-sm-20 col-sm-offset-2" id="mc_embed_signup">
+                    <form action="//sereneaudio.us4.list-manage.com/subscribe/post?u=bca13a7f717c1621a9ba4647c&amp;id=98e4f73548" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                           <div class="">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="mc-field-group">
+                                            <label for="mce-FNAME"><p>First Name (optional)</p></label>
+                                            <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="mc-field-group">
+                                            <label for="mce-LNAME"><p>Last Name (optional)</p> </label>
+                                            <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="mc-field-group">
+                                            <label for="mce-EMAIL"><p>Email Address  <span class="asterisk">(required)</span></p>
+                                            </label>
+                                            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div id="mce-responses" class="clear">
+                                            <div class="response" id="mce-error-response" style="display:none"></div>
+                                            <div class="response" id="mce-success-response" style="display:none"></div>
+                                        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        <div style="position: absolute; left: -5000px;"><input type="text" name="b_bca13a7f717c1621a9ba4647c_98e4f73548" tabindex="-1" value=""></div>
+                                        <div class="clear">
+                                            <input style="" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"
+                                                   onclick="ga('send', 'event', 'form', 'submit',  'email subscription');">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row" style="margin-top:5rem">
+                <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+            </div>
 
         </div>
     </div>
