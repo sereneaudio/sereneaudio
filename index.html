@@ -164,6 +164,61 @@ title: Serene Audio
                 </div>
             </div>
 
+            <div class="row" style=" margin-top:3rem; padding:3%;">
+                <div class="row" style="margin-bottom:3rem;">
+                    <div class="col-xs-2 col-xs-offset-7" style="margin-top:5rem;"><hr></div>
+                    <div class="col-xs-6 ">
+                        <h1 class=" light_on_dark " >from the blog</h1>
+                    </div>
+                    <div class="col-xs-2 " style="margin-top:5rem;"><hr></div>
+                </div>
+                {% comment %} This part grabs two pages that we want featured and renders them here{% endcomment %}
+                {% assign posts_featured = 0 %}
+                {% for post in site.posts %}
+                    {% if posts_featured >= 2 %}
+                    {% break %}
+                    {% endif %}
+                    {% if post.feature == true and post.publish == true %}
+                    {% capture posts_featured %}{{ posts_featured | plus:1 }}{% endcapture %}
+                    {% assign posts_featured = posts_featured | plus: 0 %}
+
+                    <div class="col-xs-18 col-xs-offset-3  col-md-8 col-md-offset-0" style="margin-bottom:6rem; height:300px; position:relative">
+
+                        <a class="row" style="width:100%; height:100%" href="{{ post.url | prepend: site.baseurl }}">
+
+                            <div class="col-xs-12" style="">
+                                <div  style="opacity:0.7;width:100%; height:150px; background-position:center center; background-size:cover; background-image:url('{{ site.baseurl }}{{ post.image.url }}')" ></div>
+                            </div>
+                            <div class="col-xs-12" style="height:150px;">
+                                <div style="opacity:1; position:absolute; bottom:5px">
+                                    <h3 class="" style="text-align:left ;font-variant: small-caps;">{{ post.title }}</h3>
+                                </div>
+                                <span class="" style="position: absolute;top: 5px;left: 10px;">{{ post.date | date: "%b %-d, %Y" }}</span>
+                            </div>
+                            <div class="col-xs-24" style="margin-top:1rem">
+                                <div style="opacity:1;">
+                                    <p class="">{{ post.excerpt  | strip_html | truncatewords: 25 }}</p>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+                <div style=" margin-top:1rem; height: 300px"  class="col-xs-18 col-xs-offset-3  col-md-8 col-md-offset-0">
+                    <div class="" style="; height:100%;position:relative; border:1px solid gray ;-background-image:url('{{ site.baseurl }}/images/background_kernel.png')">
+                        <a class="" href="{{ site.baseurl }}/blog">
+                            <div class="gradient" style="padding:2px; ; height:100%">
+                               <div style="top:0;left:0;position:absolute;width:100%; height:100%">
+                                    <div style="height:45%"></div>
+                                    <h3 style="-margin-top:-35%;line-height:00%;font-size:4vmin;text-align:center;">Discover more</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
 
             <div class="row" style=" margin-top:0rem; ;">
                 <div class="-row" style="margin-bottom:0rem;">
@@ -258,7 +313,7 @@ title: Serene Audio
                     <div class="col-xs-22 col-sm-8">
                         <h3 class="light_on_dark" >Shipping &amp; Returns</h3>
                         <p  class="light_on_dark" >
-                            All orders ship within 5 business days of receiving the order directly from our shop in Vancouver.
+                            All orders ship within 2 business days of receiving your order directly from our shop in Vancouver.
 
                         </p>
                         <p  class="light_on_dark" >

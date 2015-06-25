@@ -19,6 +19,7 @@ permalink: blog/
 
 
             {% for post in site.posts %}
+            {% if post.publish %}
             <div class="row" style="padding-bottom:6rem; position:relative">
 
                 <a class="" style="width:100%" href="{{ post.url | prepend: site.baseurl }}">
@@ -40,7 +41,7 @@ permalink: blog/
                 <!---->
 
             </div>
-
+            {% endif %}
             {% endfor %}
             <div class="row">
                 <hr class="col-xs-20 col-xs-offset-2"  style="padding-top:4rem" />

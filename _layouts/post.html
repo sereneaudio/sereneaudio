@@ -20,6 +20,7 @@ layout: default
 
                 <ul class="">
                     {% for post in site.posts %}
+                    {% if post.publish == true and post.title != page.title %}
                     <li>
                         <span class="">{{ post.date | date: "%b %-d, %Y" }}</span>
 
@@ -27,13 +28,15 @@ layout: default
                             <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                         </h5>
                     </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-0 col-md-12 ">
                 {{ content }}
+                <div class="row" style="height:5rem"></div>
                 <!-- Disqus Start --->
-                {% if page.comments %}
+                {% if page.disqus_identifier %}
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                     /* * * CONFIGURATION VARIABLES * * */

@@ -1,0 +1,35 @@
+---
+layout: post
+title: How good is your macbook's audio out
+disqus_identifier : 5db86288-f4ff-476b-80d3-e280e9477bd5
+feature: true
+publish: true
+image:
+    url: /images/mbpr13/mbpr13-ports.jpg
+    alt: MacBook Pro Retina 13" porst
+
+---
+<p>It happened one day when I was working on my MacBook Pro Retina (MBPR) 13" with my headphones on. I started noticing this buzzing noise in the background. The noise was there even when I decreased the volume. I have had quite a good experience with audio output on other Apple products, so this was a surprise. I didn’t know whether the noise was always there and I had just realized it or it had suddenly appeared out of the blue. </p>
+<p>Sometime later, I wanted to show this to my friend, but the noise wasn’t there—like when you take your car to a mechanic, and all of a sudden, it stops acting up! But later, it came back. The noise would come and go, and I couldn’t figure out why. Finally, I realized that the noise was only there when I was at the office. But what’s different about my office? I was baffled. </p>
+<p>One day, I sat down at my desk, put my headphones on, and hooked up my second monitor to the Thunderbolt (mini DisplayPort), and lo and behold, the noise appeared! The external monitor was at fault here. The noise would come and go because I didn’t always connect the monitor. </p>
+<p>Of course, I had to dig deeper. So I took the setup down to the lab to take some measurements with an audio analyzer. Here are some measurements: This first one (blue) is the frequency spectrum of the MacBook’s output running on batteries, with nothing connected to its ports and no sound playing to measure the noise floor. It’s very impressive—the noise floor is almost the same level as our audio analyzer’s (shown in red).</p>
+<p>
+    <figure><img style="width:100%" src="{{site.baseurl}}/images/mbpr13/mbpr-no-connections.png"/></figure>
+    <figcaption>MBPR 13" noise floor (blue), analyzer noise floor (red)</figcaption>
+</p>
+<p>This one has the same setup as above except that the MacBook is now connected to its power adaptor. You can clearly see a peak at 60Hz and its harmonics at 120Hz, 180Hz, etc. However, the levels are pretty low. They won’t result in an audible hum.</p>
+<p>
+    <figure><img style="width:100%" src="{{site.baseurl}}/images/mbpr13/mbpr-power-adaptor-only.png"/></figure>
+    <figcaption>MBPR 13" noise floor with power adaptor (blue), analyzer noise floor (red)</figcaption>
+</p>
+<p>The next plot is like the first setup  (running on batteries) but with the external monitor plugged in. And there is our culprit! You can see a significant difference in the noise floor plus a lot of contamination in higher frequencies.</p>
+<p>
+    <figure><img style="width:100%" src="{{site.baseurl}}/images/mbpr13/mbpr-displayport.png"/></figure>
+    <figcaption>MBPR 13" noise floor with miniDisplay monitor (blue), analyzer noise floor (red)</figcaption>
+</p>
+<p>After some playing around, I figured out that this can happen with USB devices as well. It doesn’t happen with all USB devices, but when it happens, it doesn’t matter which USB port on the MacBook the device is connected to. If I get around to it, I’ll dig deeper to find out what is special about the devices that cause the noise and give an update. So there we go—the otherwise good output of a MacBook Pro can be compromised by a USB or Thunderbolt device. </p>
+
+<p>In an upcoming post, I’ll measure the clarity score of the MacBook Pro Retina. If you are not familiar with clarity score, click this link to read all about it.</p>
+<p></p>
+
+<p></p>
