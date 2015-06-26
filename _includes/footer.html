@@ -24,6 +24,7 @@
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
 
+    //Keyword rank tracker
     if (document.referrer.match(/google\./gi) && document.referrer.match(/cd/gi)) {
         /*http://cutroni.com/blog/2013/01/14/a-new-method-to-track-keyword-ranking-using-google-analytics/*/
         var myString = document.referrer;
@@ -40,6 +41,7 @@
         ga('send', 'event', 'RankTracker', keyword,  p, rank, {'nonInteraction': 1});
     }
 
+    //Scroll behaviour tracking
     jQuery(function($) {
         // Debug flag
         var debugMode = false;
@@ -124,6 +126,11 @@
         });
     });
 
+//mixpanel track page view
+    mixpanel.track('page viewed', {
+        'page name' : document.title,
+        'url' : window.location.pathname
+    });
 
     function hideAddressBar()
     {
