@@ -57,6 +57,9 @@ $( document ).ready(function() {
 
 
         $window.on("mousewheel DOMMouseScroll", function(event){
+            if($(event.target).parents('.reviewScroll').length > 0) {
+                return;
+            }
             //scrolls the window one block
             event.preventDefault();
             event.stopPropagation();
@@ -96,6 +99,14 @@ $( document ).ready(function() {
         $('html').keydown(function(e){
             //Arrow keys create a fake mousewheel event.
             //This way, I can use the same fucntion that I use for handling mousewheel events for arrow keys as well
+            left = 37
+            up = 38
+            right = 39
+            down = 40
+            if(e.which != 38 && e.which != 40){
+                //we don't want to prevent default for other keys
+                return;
+            }
             event.preventDefault();
             var fakeEvent = jQuery.Event( "mousewheel" );
             fakeEvent.originalEvent = {};
@@ -109,6 +120,7 @@ $( document ).ready(function() {
                 $window.trigger(fakeEvent);
             }
         });
+
 
 
         var scrollTimer;

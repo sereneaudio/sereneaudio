@@ -331,8 +331,29 @@ body{
 }
 
 #reviews  p {
-
-    font-size:2.4vmin;
+    margin-bottom: 1.5rem;
+    font-size:2.2vmin;
+    display: flex;
+    position: relative;
+}
+#reviews .reviewer, #reviews .review {
+    //align-items: stretch;
+}
+#reviews .reviewer {
+    //align-items: stretch;
+    font-weight:700;
+    font-size:0.9em;
+    display:block;
+    text-align:right;
+    position: absolute;
+    bottom: 0;
+}
+#reviews .review {
+font-style:italic;
+    display:block;
+}
+#reviews .readmore{
+    font-size: inhertit;
 }
 
 #buy{
