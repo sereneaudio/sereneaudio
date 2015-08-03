@@ -1,0 +1,79 @@
+---
+layout: post
+title: Are all toslink outputs equal?
+disqus_identifier : 80f0f3c8-4dea-46f2-a80c-15ad7ee8c4fa
+feature: true
+publish: true
+image:
+    url: /images/toslink-experiment/Fiber_optic_illuminated.jpg
+    alt: Toslink cable
+---
+<p>
+    This is a question I have had in my head for a while.
+    If you are not familiar, Toslink (optical audio cables) are used to send digital audio signals from one device to another.
+    For example, you can use them to send audio from your laptop to your DAC, or from your CD player to your receiver/amplifier.
+    A little known fact is that many laptops these days have an optical output built in to their headphone jack, which can be put to use with an adapter like this.
+    A Toslink connection is not electrically conductive, which has several advantages:
+</p>
+<ol class="">
+    <li class=" "><p>It is not susceptible to electromagnetic interference. </p> </li>
+    <li class=" "><p>It does not cause ground loops.</p></li>
+</ol>
+<p>
+    Another advantage, and the main one for me, is that the signal remains in the digital domain, so there is zero degradation in sound quality.
+    I wanted to make sure this was actually true, so I designed a quick test.
+    Figure 1 shows how the test was set up:
+</p>
+<p>
+    <figure>
+        <img style="width:100%" src="{{site.baseurl}}/images/toslink-experiment/toslink-experiment.svg"/>
+    </figure>
+    <figcaption>TOSLINK experiment setup</figcaption>
+</p>
+<p>
+    I used the computer to play a 1000 Hz pure tone.
+    Then I switched between the built-in optical output of the computer and the optical output of the external sound card.
+    I measured the signal from the headphone output of the receiver to see if there was a difference between these optical outputs.
+    Below is a snapshot of those measurements.
+</p>
+<p>
+    <figure>
+        <img style="width:100%" src="{{site.baseurl}}/images/toslink-experiment/Toslink-experiment-measurement.png"/>
+    </figure>
+    <figcaption>External sound card optical output (blue), Onboard optical output (green)</figcaption>
+</p>
+<p>
+    As you can see, the 1 kHz tone played by the external sound card created a wider “skirt” than when played through the onboard sound card of the computer.
+    The wider the skirt, the higher the jitter.
+    This means the external sound card introduced more jitter to the sound.
+    Therefore not all optical outputs are created equal.
+</p>
+<p>
+    <img style="margin-right:-10px" src="{{ site.baseurl }}/images/icons/eighth_note_stem_up.svg">
+    <strong>Side note:</strong> The spikes on either side of the 1000 kHz tone are intermodulation distortions caused by the 60 Hz noise in power supply.
+    They are not relevant in this experiment.
+</p>
+<p>
+    <strong>But aren’t digital interconnects supposed to be lossless?</strong> When data is transferred digitally, there is also a clock signal.
+    The job of the clock is to synchronize the receiver with the transmitter.
+    I2S, for example, (another method used to transfer digital audio inside devices, like our amplifier) uses three signals.
+    One signal is audio data and the other two are used for synchronization.
+</p>
+<p>
+    Toslink and coaxial RCA, on the other hand, use the S/PDIF format to transmit data, which only uses one signal.
+    So, in order to keep the receiver in sync with the transmitter, S/PDIF uses a clever encoding technique that combines the audio data with the clock into one signal.
+    The receiver then recovers the clock from this signal.
+    This means the receiver is susceptible to jitter that is introduced by the source.
+    In our case, the external sound card introduced more jitter than the onboard optical output, and the receiver’s clock recovery mechanism was unable to cope.
+</p>
+<p>
+    Now, you may ask how audible is this? I switched back and forth while listening to different tracks for three minutes and I could not tell the difference.
+    A longer listening session or more tracks may prove otherwise.
+    But for now, if you are a purist, you know SPDIF transmission doesn’t necessarily equate to lossless transmission.
+</p>
+<p>Do you see a flaw in this experiment? Leave a comment below and let me know.</p>
+
+
+
+
+
