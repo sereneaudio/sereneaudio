@@ -1,0 +1,430 @@
+---
+layout: post
+title: what does jitter ACTUALLY sound like?
+disqus_identifier : 38f2bd1f-bcd9-47d8-8e0e-a80a59b7aa3f
+feature: false
+publish: false
+
+image:
+    url: /images/jitter-experiment/JitterCLock.png
+    alt: jitter
+---
+
+<p>
+    In a <a href="{{site.baseurl}}/blog/TOSLINK-Experiment/">previous post</a> we had an encouter with jitter in audio.
+    The talk about jitter is hard to miss these days. There are plenty of products in the market claiming to have low jitter or to reduce jitter.
+
+</p>
+<p>
+    There are also many many pages on the internet that do a pretty good job explaining what jitter is.
+    If you are not familiar with the concept, a quick google search will bring you up to speed.
+    However, if you want to find out what it sounds like, that's not so easy to find.
+    The top result for “What jitter sounds like” was <a href="https://www.youtube.com/watch?v=ZT_1UATci3c" target="_blank" >this video</a>, 5 minutes that I never get back.
+</p>
+<p>
+    So I thought “What if I could simulate jitter, listen to it, and judge for myself?”
+    <br>This post is the result of that thought.
+</p>
+<h2>The simulation</h2>
+<p>
+    If you want to know how my simulation works, read on. Otherwise, you can <a href="#listen">skip</a> this section where you can do some fun jittery listening.
+    To simulate jitter, I used a handy software called Matlab. Matlab is great for doing all sorts of mathematical things.
+    I wrote a little script that does this:
+</p>
+<ol>
+    <li><p>Opens a music WAV file</p></li>
+    <li><p>Up-samples the file by a factor of 100</p></li>
+    <li><p>Down-samples the file by a factor of 100</p></li>
+    <li><p>Saves the result in a new WAV file</p></li>
+</ol>
+<p>
+    The magic happens durring the down-sampling part.
+    Normally if you want to down sample by a factor of 100, you would take a sample jump over 100 samples, take another sample, then jump over another 100 samples &hellip; you get where I'm going.
+</p>
+<p>
+    But here, instead of jumping 100 samples, I jump 100 plus (or minus) a number
+    (lets call that number 'x').
+    Doing this simulates a situation where your clock is ticking alittle earlier or later than it is supposed to.
+</p>
+<p>
+    There are various causes of jitter in audio, and so there are various types of jitter.
+    Here I experimented with two.
+</p>
+<ol>
+    <li><p>Noise jitter</p></li>
+    <li><p>Periodic jitter</p></li>
+</ol>
+<p>
+    <i style="font-weight:600">Noise jitter</i> is when the ticks of the clock are off by a random length of time.
+    That means x is a random number.
+    I used a “normally distributed random number” which is what we are more likely to have in the real world.
+</p>
+<p>
+    <i style="font-weight:600">Periodic jitter</i> is when x oscilates in time.
+    This jitter can be caused by the 60Hz (or its harmonics) from your power supply leaking into your clock generation circuitry.
+    <br>Every circuit is unique, so in the real world priodic jitter can come in different frequencies.
+    However,  for the sake of simplicity, in this experiment I have used 60Hz periodic jitter.
+</p>
+<p>I have ran the simulation on different 44.1kHz (CD quality) WAV files
+    adding different kinds and different levels of jitter to each.
+</p>
+<p>Now the fun part</p>
+<h2 id="listen">Enough already! Let me listen</h2>
+<p>
+    There are seven versions of each sample.
+    Three have periodic jitter and three have random jitter, one is the original - untouched.
+    In the samples we have 2ns, 4ns, 8ns, 16ns RMS jitter.
+    It is very unlikely in the real world for a digital to analog converter to have a jitter higher than 4ns RMS.
+    I threw in the 8ns and 16ns samples to see what some extreme cases sound like.
+    As you scroll down you can listen to them and make your best guess of which is which.
+    Then you can click the sample's title (i.e. 1kHz v1) to see if your guesses were right.<br>
+    Before you move on here is some thing to keep in mind.
+    The clock intervals of a 44.1kHz signal is 22.7 nano seconds (ns).
+    That is there is a sample every 22.7 nano seconds.
+    Jitter is expressed in RMS nano seconds.
+    So when we say there is a 2ns RMS jitter, it means the clock was <i>on average</i> off by 2ns.
+</p>
+<h2>1kHz</h2>
+<p> Let's start with a 1kHz sinusoidal wave.
+</p>
+<ol>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="Original">1kHz v1</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/original.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="16ns RMS periodic">1kHz v2</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/jitterized_periodic_16NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="2ns RMS random">1kHz v3</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/jitterized_random_1.9NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="2ns RMS periodic">1kHz v4</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/jitterized_periodic_1.9NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="16ns RMS random">1kHz v5</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/jitterized_random_16NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="8ns RMS random">1kHz v6</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/jitterized_random_8NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="8ns RMS periodic">1kHz v7</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/1kHz/jitterized_periodic_8NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+</ol>
+
+<p>
+    Let's see what the spectrum of the 1kHz tone looks like after jitter is added
+    <figure>
+        <img src="{{site.baseurl}}/images/jitter-experiment/no_jitter.png" alt="1kHz power spectrum" style="width:100%">
+        <figcaption>1kHz tone with no jitter added</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+        <img src="{{site.baseurl}}/images/jitter-experiment/2ns_random_jitter.png"  alt="1kHz power spectrum" style="width:100%">
+        <figcaption>1kHz tone with 2ns random jitter</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+        <img src="{{site.baseurl}}/images/jitter-experiment/2ns_periodic_60Hz_jitter.png" alt="1kHz power spectrum"  style="width:100%">
+        <figcaption>1kHz tone with 2ns periodic 60Hz jitter</figcaption>
+    </figure>
+</p>
+
+<h2>Breathe</h2>
+<p>
+    Now, let's listen to some real music. I hope you like Pink Floyd!
+</p>
+<ol>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="Original">Breathe v1</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/original.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="4ns RMS periodic">Breathe v2</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/jitterized_periodic_4NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="2ns RMS random">Breathe v3</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/jitterized_random_1.9NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="2ns RMS periodic">Breathe v4</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/jitterized_periodic_1.9NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="4ns RMS random">Breathe v5</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/jitterized_random_4NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="8ns RMS random">Breathe v6</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/jitterized_random_8NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="8ns RMS periodic">Breathe v7</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/Breathe/jitterized_periodic_8NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+</ol>
+<h2>The World is Round</h2>
+<p>
+    Next, The World is Round by Day One
+</p>
+<ol>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="2ns RMS periodic">The World is Round v1</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/jitterized_periodic_1.9NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="4ns RMS random">The World is Round v2</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/jitterized_random_4NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="Original">The World is Round v3</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/original.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="4ns RMS periodic">The World is Round v4</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/jitterized_periodic_4NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="2ns RMS random">The World is Round v5</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/jitterized_random_1.9NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="8ns RMS random">The World is Round v6</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/jitterized_random_8NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3 class="audio-sample-title" data-sample-version="8ns RMS periodic">The World Is Round v7</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/World-is-round/jitterized_periodic_8NanoSec.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+</ol>
+<h2>On a Wednesday</h2>
+<p>
+    Now an exerpt from a favorite artist of mine, <a href="https://soundcloud.com/vanishark" target="_blank">Vanish Ark</a>.
+    We are going to do something different with this sample.
+    I've heard a really slow periodic jitter, sounds like a <a href="https://en.wikipedia.org/wiki/Wow_(recording)" target="_blank">WOW</a> that you expect from an LP record.
+    LPs have an RPM of 33<sup>1</sup>⁄<sub>3</sub> which mean the WOW should have a frequency of 0.55Hz.
+    So I added a giagantic 1600ns RMS periodic jitter at 0.55Hz.
+    Now, it's totally unrealistic for a digital system to have jitter like this, but
+    let's see what it sounds like.
+</p>
+<ol>
+    <li>
+        <h3>Original</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/On_a_Wednesday/original.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>WOW jitter</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/jitter-test/On_a_Wednesday/jitterized_periodic_3.2e+03NanoSec_0.555Hz.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <figcaption>Multi-tone test WAV file</figcaption>
+            </figure>
+        </p>
+    </li>
+</ol>
+<h2>This is the end</h2>
+<p>
+    This wraps up our mini experiment.
+    I hope it has shed some light on this illusive jitter.
+    How did jitter affect your experience?
+    Did it effect the music the way you imagined?
+    Do you see a flaw in the experiment?
+</p>
+<p>Sia</p>
+<script>
+
+    $(".audio-sample-title").click(function() {
+
+        var sample_version = $(this).data("sample-version");
+        $(this).text(sample_version);
+    });
+
+</script>

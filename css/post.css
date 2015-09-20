@@ -81,3 +81,11 @@ figcaption {
 }
 
 
+
+.audio-sample-title {
+    cursor: pointer;
+
+}
+.audio-sample-title:hover{
+    color: #f5c77e;
+}
