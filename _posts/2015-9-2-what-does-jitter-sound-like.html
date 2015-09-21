@@ -11,7 +11,7 @@ image:
 ---
 
 <p>
-    In a <a href="{{site.baseurl}}/blog/TOSLINK-Experiment/">previous post</a> we had an encouter with jitter in audio.
+    In a <a href="{{site.baseurl}}/blog/TOSLINK-Experiment/">previous post</a> we had an encounter with jitter in audio.
     The talk about jitter is hard to miss these days. There are plenty of products in the market claiming to have low jitter or to reduce jitter.
 
 </p>
@@ -38,13 +38,13 @@ image:
     <li><p>Saves the result in a new WAV file</p></li>
 </ol>
 <p>
-    The magic happens durring the down-sampling part.
+    The magic happens during the down-sampling part.
     Normally if you want to down sample by a factor of 100, you would take a sample jump over 100 samples, take another sample, then jump over another 100 samples &hellip; you get where I'm going.
 </p>
 <p>
     But here, instead of jumping 100 samples, I jump 100 plus (or minus) a number
     (lets call that number 'x').
-    Doing this simulates a situation where your clock is ticking alittle earlier or later than it is supposed to.
+    Doing this simulates a situation where your clock is ticking a little earlier or later than it is supposed to.
 </p>
 <p>
     There are various causes of jitter in audio, and so there are various types of jitter.
@@ -60,9 +60,9 @@ image:
     I used a “normally distributed random number” which is what we are more likely to have in the real world.
 </p>
 <p>
-    <i style="font-weight:600">Periodic jitter</i> is when x oscilates in time.
+    <i style="font-weight:600">Periodic jitter</i> is when x oscillates in time.
     This jitter can be caused by the 60Hz (or its harmonics) from your power supply leaking into your clock generation circuitry.
-    <br>Every circuit is unique, so in the real world priodic jitter can come in different frequencies.
+    <br>Every circuit is unique, so in the real world periodic jitter can come in different frequencies.
     However,  for the sake of simplicity, in this experiment I have used 60Hz periodic jitter.
 </p>
 <p>I have ran the simulation on different 44.1kHz (CD quality) WAV files
@@ -376,11 +376,11 @@ image:
 </ol>
 <h2>On a Wednesday</h2>
 <p>
-    Now an exerpt from a favorite artist of mine, <a href="https://soundcloud.com/vanishark" target="_blank">Vanish Ark</a>.
+    Now an excerpt from a favorite artist of mine, <a href="https://soundcloud.com/vanishark" target="_blank">Vanish Ark</a>.
     We are going to do something different with this sample.
     I've heard a really slow periodic jitter, sounds like a <a href="https://en.wikipedia.org/wiki/Wow_(recording)" target="_blank">WOW</a> that you expect from an LP record.
     LPs have an RPM of 33<sup>1</sup>⁄<sub>3</sub> which mean the WOW should have a frequency of 0.55Hz.
-    So I added a giagantic 1600ns RMS periodic jitter at 0.55Hz.
+    So I added a gigantic 1600ns RMS periodic jitter at 0.55Hz.
     Now, it's totally unrealistic for a digital system to have jitter like this, but
     let's see what it sounds like.
 </p>
