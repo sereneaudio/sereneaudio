@@ -1,0 +1,542 @@
+---
+layout: post
+title: how good is bluetooth audio at its best?
+disqus_identifier : 746dc5cc-9db2-41ae-b830-157ff48084db
+feature: false
+publish: false
+
+image:
+    url: /images/jitter-experiment/JitterClock.png
+    alt: bluetooth
+---
+<p>
+    Wireless audio technologies sound quite appealing. However, when it comes to Bluetooth audio, there is a concern that the convenience of it comes at a price: “compromising sound quality”. This prevents many audio enthusiasts from removing all those lengthy and tangled wires with the peace of mind of maintaining a quality listening experience.
+</p>
+<p>
+    Many consumer wireless audio devices support Bluetooth audio.
+    Given the limited bandwidth of Bluetooth, it is impossible to transmit audio without some compression.
+    Some devoted listeners believe that lossy compression inherently degrades audio quality, and therefore, Bluetooth audio is not acceptable to them.
+    But how bad is it really? We try to answer that question in this post.
+</p>
+<p>
+    For many years, the de facto standard codec for Bluetooth audio was Low Complexity Sub-band Coding (SBC).
+    In recent years, another codec has gained popularity. It is called aptX.
+</p>
+<p>
+    The marketing material that is put forth by CSR (the creator of aptX) is pretty unclear.
+    However, we have seen them claim that aptX delivers lossless CD audio quality.
+    Given that aptX is a proprietary codec, it is not disclosed how an audio signal is compressed using this codec.
+    Not knowing much about the nature of aptX, we were skeptical about the claims.
+    Hence, we came up with a few simple experiments to attempt to objectively understand this codec.
+</p>
+<h2>
+Experiment Description
+</h2>
+<p>
+    The purpose of the following experiments is to compare aptX with SBC and 320Kbps MP3 codecs.
+    A series of test signals were used in an uncompressed CD quality format: 16bit depth at 44100Hz sampling rate.
+    The test signals were as follows:
+</p>
+<ol>
+    <li><p>A continuous 1kHz tone</p></li>
+    <li><p>A continuous 10kHz tone</p></li>
+    <li><p>Broadband white noise</p></li>
+    <li><p>A periodic impulse</p></li>
+    <li><p>Three music pieces</p></li>
+</ol>
+<p>
+    Using the target codecs, each of these test signals were compressed and decompressed back to a 16bit 44100Hz wav file.
+    Using aptX and SBC compressions, the signals were played through the Bluetooth transmitter of a Macbook Pro and recorded through a Bose Bluetooth receiver.
+    To avoid noises introduced by the digital-to-analog and analog-to-digital conversions, the SPDIF output of the Bose receiver was directly connected to the SPDIF input of the sound card.
+    This means the signal never leaves the digital domain.
+    For 320kbps MP3 compression we used Audacity.
+</p>
+<p>
+    The temporal (time-wise) and spectral (frequency-wise) behavior of the recorded signals were then compared with that of the original uncompressed signals.
+    Matlab was used for post-processing the recorded files. </p>
+<p>
+    Before moving on to the results, we should let you know that many of the figures will be represented in terms of spectrograms.
+    Spectrograms are helpful to study what happens to the frequency content of a signal with respect to time.
+    In a typical spectrogram figure, the x and y axes denote time and frequency.
+    The magnitude of a signal at a certain time and frequency is coded in different colors: red being the largest and dark blue the smallest.
+</p>
+<h2>1kHz Pure Tone Test</h2>
+<p>Lets first listen to the recorded signals:</p>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/1kHz-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/1kHz-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/1kHz-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/1kHz-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>
+    The purpose of the 1kHz test file was to investigate whether any of the codecs result in harmonic distortion.
+    However, the following figures do not show any harmonic distortion.
+    <figure>
+        <img src="{{site.baseurl}}/images/sbc-aptx/1kHz_PSD.png" alt="1kHz power spectrum" style="width:150%; margin-left:-25%">
+        <figcaption style="margin-top:1rem; margin-bottom:2rem">1kHz tone spectrums, original and after being encoded and decoded.</figcaption>
+    </figure>
+</p>
+<h2>10kHz Pure Tone Test</h2>
+<p>
+    This test was done to examine the noise floor.
+    We could not use a silent file, because codec would detect that.
+    So we decided to feed the codecs a 10kHz signal, and look at the noise floor everywhere else.
+</p>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/10kHz-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/10kHz-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/10kHz-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/10kHz-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>
+    Lets look at the power spectral density and the spectrogram of these files:
+    <figure>
+        <img src="{{site.baseurl}}/images/sbc-aptx/10kHz_PSD.png" alt="10kHz power spectrum" style="width:150%; margin-left:-25%">
+        <figcaption style="margin-top:1rem; margin-bottom:2rem">10kHz tone spectrums, original and after being encoded and decoded.</figcaption>
+    </figure>
+    <figure>
+        <img src="{{site.baseurl}}/images/sbc-aptx/10kHz_SPECTROGRAM.png" alt="10kHz power spectrum" style="width:150%; margin-left:-25%">
+        <figcaption style="margin-top:1rem; margin-bottom:2rem">10kHz tone spectrograms, original and after being encoded and decoded.</figcaption>
+    </figure>
+</p>
+<p>
+    The above Figures show that in case of a 10kHz pure tone test signal, SBC results in some inharmonic distortion.
+    These distortions can be seen in the power spectral density as spikes and in the spectrogram as flat light blue lines.</p>
+<p>
+    If you listen to 10kHz aptx file, you may realize that the recording has noticeably higher background noise.
+    This noise can be seen in both the spectrogram and the power spectral density plots.
+    In both plots, the noise seems to exist from 5kHz to 17kHz.
+</p>
+<h2>Broadband White Noise</h2>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/white-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/white-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/white-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/white-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>Lets look at the spectrogram of these samples:
+    <figure>
+        <img src="{{site.baseurl}}/images/sbc-aptx/White_SPECTROGRAM.png" alt="White noise spectrogram" style="width:150%; margin-left:-25%">
+        <figcaption style="margin-top:1rem; margin-bottom:2rem">White noise spectrograms, original and after being encoded and decoded.</figcaption>
+    </figure>
+</p>
+<p>
+    White noise contains all frequencies at an almost equal level.
+    That’s why the spectrogram for the source file is red everywhere.
+    White noise helps us understand the behavior of a codec when it is excited at all frequencies and does not change in time.
+    Visually speaking, it seems that SBC stays more truthful to the original file in this case.
+    aptX seems to attenuate frequencies above 20kHz while MP3 harshly cuts everything off above this frequency.
+    It should be mentioned that 20kHz is above the hearing threshold of a young and healthy individual.
+</p>
+<h2>Periodic Impulse</h2>
+<p>
+
+</p>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/impulse-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/impulse-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/impulse-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/impulse-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>
+    Using Matlab, we made a wav file in which every half a second an impulse is played.
+    During each 0.5 seconds, the impulse file is basically zero everywhere except at one sample.
+    Some interesting results can be seen here.
+</p>
+<p>Let’s start with what the recorded wav file looks like:
+    <figure>
+        <img src="{{site.baseurl}}/images/sbc-aptx/impulse.png" alt="impulse" style="width:150%; margin-left:-25%">
+        <figcaption style="margin-top:1rem; margin-bottom:2rem">Impulse signal, original and after being encoded and decoded.</figcaption>
+    </figure>
+</p>
+<p>
+    SBC, aptX, and MP3 introduce pre-echo in case of an impulse input signal.
+    The spectrograms also below further affirm this phenomenon.
+    <figure>
+        <img src="{{site.baseurl}}/images/sbc-aptx/IMPULSE_SPECTROGRAM.png" alt="impulse" style="width:150%; margin-left:-25%">
+        <figcaption style="margin-top:1rem; margin-bottom:2rem">Impulse signal, original and after being encoded and decoded.</figcaption>
+    </figure>
+</p>
+<p>Besides pre-echo, all the codecs seem to introduce low pass filtering (spreading of the signal longer than the original).
+    Low pass filtering seems more pronounced in aptX, where it starts rolling off at about 13kHz.
+    This could mean transient attacks in the music may not have the same sting.
+</p>
+<p>
+    MP3 once again seems to cut off the signal above 20kHz, while SBC does not seem to alter the frequency spectrum when the impulse happens.
+    (Note: It should be noted that these observations are not necessarily expandable to other arbitrary source files.
+    Most of audio codecs behave differently based on the spectral and temporal contents of the source file.
+    As a result, for example, we can only state that aptX behaves in such way when the input file is an impulse.)
+</p>
+<h2>Finally some real music</h2>
+<p>
+    aptX and SBC are almost always built into small portable speakers which are not designed for critical listening.
+    So if you don’t like what you hear, you don’t know whether to blame the speakers or the Bluetooth codec.
+    To help you isolate and evaluate the effect of these codecs, we have provided some music samples that you can playback on your favorite system.
+    I hope this will help you form your own opinion, and showcase what bluetooth audio can be at its best. Have a listen.
+</p>
+<h3>“Adios Fulana” by Toto La Momposina</h3>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/adios-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/adios-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/adios-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/adios-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>-</p>
+<h3>“Breathe” by Pink Floyd</h3>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/breathe-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/breathe-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/breathe-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/breathe-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>-</p>
+<h3>“World is round” by Day One</h3>
+<ol>
+    <li>
+        <h3>Source</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/world-SOURCE.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>aptX</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/world-APTX.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>SBC</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/world-SBC.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </figure>
+        </p>
+    </li>
+    <li>
+        <h3>MP3 320Kbps</h3>
+        <p>
+            <figure>
+                <audio  controls preload="none" style="width:100%">
+                    <source src="{{site.baseurl}}/sounds/sbc-aptx/world-MP3.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </figure>
+        </p>
+    </li>
+</ol>
+<p>For further analysis, let’s look at the spectrograms for each of these files:</p>
+<figure>
+    <img src="{{site.baseurl}}/images/sbc-aptx/adios_SPECTROGRAM.png" alt="impulse" style="width:100%; margin-left:0">
+    <figcaption style="margin-top:0.5rem; margin-bottom:3rem">“Adios Fulana” by Toto La Momposina spectrograms</figcaption>
+</figure>
+<figure>
+    <img src="{{site.baseurl}}/images/sbc-aptx/Breathe_SPECTROGRAM.png" alt="impulse" style="width:100%; margin-left:0">
+    <figcaption style="margin-top:0.5rem; margin-bottom:3rem">“Breathe” by Pink Floyd spectrograms</figcaption>
+</figure>
+<figure>
+    <img src="{{site.baseurl}}/images/sbc-aptx/World_SPECTROGRAM.png" alt="impulse" style="width:100%; margin-left:0">
+    <figcaption style="margin-top:0.5rem; margin-bottom:3rem">“World is round” by Day One spectrograms</figcaption>
+</figure>
+<p>
+    A few observations can be made here. The most obvious and redundant one is that MP3 only deals with the frequency content lower than 20kHz.
+    In case of SBC, the content seems to be sometimes cut off even below 20kHz.
+    It seems that unless certain amount of energy exists in higher frequencies, the content at those frequencies will be cut off by SBC.
+    Visually looking at the results, it seems that aptX does a better job than the other two codecs when it comes to real music.
+</p>
+<h2>Final Remarks</h2>
+<p>Many readers might rightfully find the above experiments inadequate. We understand that looking at a signal does not show us how truthful the signal is to the original source. This has been merely an attempt to help us and audio enthusiasts gain some preliminary objective understanding of the mentioned codecs. </p>
+<p>After listening to the samples, what do you think of these codecs? Do you hear a difference? Do you think lossy compression that comes with SBC and aptX is worth the convenience? Also if you have any further insights or opinions on this topic, please don’t hesitate to share it in the comments below. </p>
+<hr>
+<h3>About the author</h3>
+<div>
+    <p style="display:inline-block;width:15%; margin-left:0;vertical-align: text-bottom;">
+        <a href="https://www.linkedin.com/profile/view?id=AAkAABM4doEB3oTEaFXCmsCBUFWJV8fG7zWSwlI" target="_blank">
+            <img src="{{site.baseurl}}/images/sbc-aptx/Behzad.jpg" alt="impulse" style="width:100%">
+        </a>
+    </p>
+<div style="display:inline-block; padding-left:5%;width:84%;">
+    <a href="https://www.linkedin.com/profile/view?id=AAkAABM4doEB3oTEaFXCmsCBUFWJV8fG7zWSwlI" target="_blank">
+        <p>Behzad Haki</p>        </a>
+        <h4>
+            Behzad is a long time music lover and a record ethusiast and collector.
+            His passions are audio, acoustics, and tinkering with record players. You'll usually find him designing, simulating, and measuring various types of speakers.
+        </h4>
+    </div>
+</div>
