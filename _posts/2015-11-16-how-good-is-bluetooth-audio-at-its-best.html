@@ -2,11 +2,11 @@
 layout: post
 title: how good is bluetooth audio at its best?
 disqus_identifier : 746dc5cc-9db2-41ae-b830-157ff48084db
-feature: false
-publish: false
+feature: true
+publish: true
 
 image:
-    url: /images/jitter-experiment/JitterClock.png
+    url: /images/sbc-aptx/impulse-high-res.png
     alt: bluetooth
 ---
 <p>
@@ -14,7 +14,7 @@ image:
 </p>
 <p>
     Many consumer wireless audio devices support Bluetooth audio.
-    Given the limited bandwidth of Bluetooth, it is impossible to transmit audio without some compression.
+    Given the limited bandwidth of Bluetooth, it is impossible to transmit audio without some lossy data compression.
     Some devoted listeners believe that lossy compression inherently degrades audio quality, and therefore, Bluetooth audio is not acceptable to them.
     But how bad is it really? We try to answer that question in this post.
 </p>
@@ -24,7 +24,7 @@ image:
 </p>
 <p>
     The marketing material that is put forth by CSR (the creator of aptX) is pretty unclear.
-    However, we have seen them claim that aptX delivers lossless CD audio quality.
+    However, we have seen them claim that aptX delivers lossless CD audio quality sound.
     Given that aptX is a proprietary codec, it is not disclosed how an audio signal is compressed using this codec.
     Not knowing much about the nature of aptX, we were skeptical about the claims.
     Hence, we came up with a few simple experiments to attempt to objectively understand this codec.
@@ -46,7 +46,7 @@ Experiment Description
 </ol>
 <p>
     Using the target codecs, each of these test signals were compressed and decompressed back to a 16bit 44100Hz wav file.
-    Using aptX and SBC compressions, the signals were played through the Bluetooth transmitter of a Macbook Pro and recorded through a Bose Bluetooth receiver.
+    For aptX and SBC compressions, the signals were played through the Bluetooth transmitter of a Macbook Pro and recorded through a Bose Bluetooth receiver.
     To avoid noises introduced by the digital-to-analog and analog-to-digital conversions, the SPDIF output of the Bose receiver was directly connected to the SPDIF input of the sound card.
     This means the signal never leaves the digital domain.
     For 320kbps MP3 compression we used Audacity.
@@ -123,8 +123,8 @@ Experiment Description
 <h2>10kHz Pure Tone Test</h2>
 <p>
     This test was done to examine the noise floor.
-    We could not use a silent file, because codec would detect that.
-    So we decided to feed the codecs a 10kHz signal, and look at the noise floor everywhere else.
+    We could not use a silent file, because codecs would detect that.
+    So we decided to feed the codecs a 10kHz pure tone, and look at the noise floor everywhere else.
 </p>
 <ol>
     <li>
@@ -326,7 +326,7 @@ Experiment Description
     </figure>
 </p>
 <p>
-    SBC, aptX, and MP3 introduce pre-echo in case of an impulse input signal.
+    SBC, aptX, and MP3 all introduce pre-echo in case of an impulse input signal.
     The spectrograms also below further affirm this phenomenon.
     <figure>
         <img src="{{site.baseurl}}/images/sbc-aptx/IMPULSE_SPECTROGRAM.png" alt="impulse" style="width:150%; margin-left:-25%">
@@ -334,8 +334,8 @@ Experiment Description
     </figure>
 </p>
 <p>Besides pre-echo, all the codecs seem to introduce low pass filtering (spreading of the signal longer than the original).
-    Low pass filtering seems more pronounced in aptX, where it starts rolling off at about 13kHz.
-    This could mean transient attacks in the music may not have the same sting.
+    Low pass filtering seems more pronounced in aptX, where it starts rolling off at about 5kHz.
+    This is also audible in the samples, and it could mean transient attacks in the music may not have the same sting.
 </p>
 <p>
     MP3 once again seems to cut off the signal above 20kHz, while SBC does not seem to alter the frequency spectrum when the impulse happens.
@@ -518,11 +518,14 @@ Experiment Description
     A few observations can be made here. The most obvious and redundant one is that MP3 only deals with the frequency content lower than 20kHz.
     In case of SBC, the content seems to be sometimes cut off even below 20kHz.
     It seems that unless certain amount of energy exists in higher frequencies, the content at those frequencies will be cut off by SBC.
-    Visually looking at the results, it seems that aptX does a better job than the other two codecs when it comes to real music.
+    Visually looking at the results, it seems that aptX does a better job than SBC and 320kbps MP3 when it comes to real music.
 </p>
 <h2>Final Remarks</h2>
 <p>Many readers might rightfully find the above experiments inadequate. We understand that looking at a signal does not show us how truthful the signal is to the original source. This has been merely an attempt to help us and audio enthusiasts gain some preliminary objective understanding of the mentioned codecs. </p>
-<p>After listening to the samples, what do you think of these codecs? Do you hear a difference? Do you think lossy compression that comes with SBC and aptX is worth the convenience? Also if you have any further insights or opinions on this topic, please don’t hesitate to share it in the comments below. </p>
+<p>After listening to the samples, what do you think of these codecs?
+    Do you hear a difference?
+    Do you think SBC and aptX have place in a HiFi system? or are they better off in portable and small speakers?
+    Also if you have any further insights or opinions on this topic, please don’t hesitate to share it in the comments below. </p>
 <hr>
 <h3>About the author</h3>
 <div>
