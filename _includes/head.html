@@ -18,7 +18,14 @@
     <script src="{{ site.baseurl }}/js/jquery-2.1.1.min.js"></script>
     <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
     <script src="{{ site.baseurl }}/js/hero-slider.js"></script>
-
+    <script src="{{ site.baseurl }}/js/snowstorm-min.js"></script>
+    <script>
+        snowStorm.snowColor = '#adbcc9';   // blue-ish snow!?
+        snowStorm.flakesMaxActive = 60;    // show more snow on screen at once
+        snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
+        snowStorm.followMouse = false;
+        snowStorm.freezeOnBlur = false;
+    </script>
 
     {% if (page.title == 'Talisman Speakers') or (page.title == 'Talisman Speakers Brochure') %}
 
@@ -28,6 +35,7 @@
     <script src="{{ site.baseurl }}/js/spin.min.js"></script>
     <script src="{{ site.baseurl }}/js/jquery.appear.js"></script>
     <script src="{{ site.baseurl }}/js/sereneaudio.js"></script>
+
 
     {% endif %}
 
