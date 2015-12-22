@@ -664,6 +664,7 @@ font-style:italic;
     float: left;
     padding: .5rem;
     padding-left: 0rem;
+    line-height: 2.1rem;
 }
 
 .buy-btn:active {
