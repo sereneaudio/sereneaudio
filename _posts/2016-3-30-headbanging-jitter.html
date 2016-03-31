@@ -1,0 +1,50 @@
+---
+layout: post
+title: Headbanging jitter
+disqus_identifier : f43490c7-b29d-419b-8d4b-38ba3290473a
+feature: true
+publish: true
+
+image:
+    url: /images/headbang-jitter/headbanging.jpg
+    alt: bluetooth
+---
+<p>
+    I was reading some of the comments to our <a href="{{site.baseurl}}/blog/what-does-jitter-sound-like/">previous blog post</a> about jitter. Someone had jokingly mentioned that jitter that comes from the doppler effect, if you move your head, is probably higher than jitter introduced by the devices themselves. I had never thought of that. Here is one more thing to be paranoid about and there are plenty of those if you are an audiophile! So I decided to do a little fun calculation to see if there is any truth to that. </p>
+<p>
+    There is always music playing in our office. To test this theory, I started bobbing my head to see how much my ears moved back and forth, but it’s hard to know when it is you that is doing the bobbing! So I turned to Aida and asked her how much my ears are moving … 1 centimeter? 2 centimeters? “1 cm”, she said. I continued my work while she was still staring at me until she asked “what the hell are you doing?” I mumbled something about jitter which she ignored and we both went our way.
+</p>
+<p>
+    So, let’s assume you bob your head back and forth by 1 cm and the music is 120bpm. For everyone that doesn’t know, BPM stands for Bobs Per Minute. Haha kidding, it’s Beats Per Minute. That means if you have rhythm, you are bobbing your head 120 times per minute or 2 times per second. Let’s also assume your head movement follows a sinusoidal pattern which I think is a safe assumption. For the sake of simplicity, let’s also assume that this movement is aligned with the axis of your speakers. The formula for this displacement relative to the sound source will look like this:
+</p>
+<p>
+    d = <span style="color:red">0.005</span>Sin(2&Pi;&times;<span style="color:green">2</span><span style="color:blue">t</span>)
+</p>
+<ul>
+    <li> <span style="color:red">0.005 is 1cm devided by 2 converted to meters</span></li>
+    <li> <span style="color:green">2 come from 2 bobs per second calculated above</span></li>
+    <li><span style="color:blue">t is time in seconds</span></li>
+
+
+</ul>
+<p>
+    Taking the derivative of this gives us the velocity of movement:
+</p>
+<p>
+    v = 0.02&Pi;Cos(4&Pi;t)
+</p>
+<p>
+    Maximum velocity of the movement is: 0.02&Pi; =0.062m/s. Let’s calculate the maximum shift in frequency as the result of this movement using the Doppler equation:
+</p>
+<img src="{{site.baseurl}}/images/headbang-jitter/doppler-eq.png">
+<p>plugging in the numbers we get:</p>
+<p>344+0.062/344 = 1.00018 or &cong;0.02% peak </p>
+<p>
+    It means a 1000Hz tone will oscillate back and forth between 1000.18Hz and 999.82Hz. For sinusoidal periodic motion a 0.02% peak shift equals to 0.014% RMS.
+    In the <a href="{{site.baseurl}}/blog/what-does-jitter-sound-like/">previous blog post</a> about jitter, the samples with lowest periodic jitter, had 10% RMS jitter added to them, and they were indistinguishable from samples with no jitter.
+</p>
+<p>
+    <img align="right" width="20%" style="margin-right:5%" src="{{site.baseurl}}/images/headbang-jitter/happy-head.gif">
+    For now it seems you can move your head while listening to music, Happy bobbing!
+
+</p>
