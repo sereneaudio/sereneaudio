@@ -1079,3 +1079,40 @@ div:hover>.enableHover2>.gradient2:after {
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
 }
 
+
+
+.crowdfunding-block h1{
+    font-variant: small-caps;
+    font-family: 'concourse-t7','Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.06rem;
+
+    font-size: 7.0rem;
+    font-style: normal;
+    font-weight: normal;
+    color:#f7b53c;
+    color: black;
+
+}
+ .crowdfunding-block p{
+    font-style: normal;
+    font-weight: 600;
+    line-height: 145%;
+    font-size: 2.0rem;
+    font-family: 'freight-text-pro', georgia, serif;
+
+    font-smoothing : antialiased;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing: grayscale;
+     color: black;
+
+ }
+.crowdfunding-block span{
+    color:inherit;
+}
+.mc-field-group .crowdfunding-input {
+    border-style: solid;
+    /* border-bottom: black; */
+    border-width: thin;
+    background: rgba(250, 231, 202, 0.77);
+    font-weight: 600;
+}
