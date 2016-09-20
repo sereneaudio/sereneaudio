@@ -355,7 +355,7 @@ body{
     font-size:0.9em;
     display:block;
     text-align:right;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
 }
 #reviews .review {
