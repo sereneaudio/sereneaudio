@@ -35,6 +35,11 @@ layout: default
             <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-0 col-md-12 ">
                 {{ content }}
                 <div class="row" style="height:5rem"></div>
+            </div>
+        </div>
+        {% include email-grabber.html %}
+        <div  class="row" style="background-color:rgba(255, 255, 255, 0.93); padding-bottom:8rem">
+            <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-5 col-md-12 col-md-offset-6">
                 <!-- Disqus Start --->
                 {% if page.disqus_identifier %}
                 <div id="disqus_thread"></div>
