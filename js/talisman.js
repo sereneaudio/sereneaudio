@@ -4,8 +4,10 @@ $( document ).ready(function() {
     var body = document.body,
         timer;
     var $window = $(window);
+    var isMobile = jQuery.browser.mobile;
+    //isMobile = true;
 
-    if(!jQuery.browser.mobile){
+    if(!isMobile){
         var winHeight = $window.height();
     }else{
         var winHeight = $window.outerHeight();
@@ -19,7 +21,7 @@ $( document ).ready(function() {
         $('.section').css({'transition':'height 0.8s'});
     }, 2);
 
-    if(!jQuery.browser.mobile){
+    if(!isMobile){
         var scroll_tween = TweenMax.to($window, 1, {
             scrollTo : { y: 0, autoKill:false },
             ease: Power2.easeOut,
@@ -53,7 +55,7 @@ $( document ).ready(function() {
 
         var scrollTop, finalScroll, lastUpdateTime = 0;
 
-
+/*
         $window.on("mousewheel DOMMouseScroll", function(event){
             if($(event.target).parents('.reviewScroll').length > 0) {
                 return;
@@ -119,18 +121,16 @@ $( document ).ready(function() {
             }
         });
 
-
-
         var scrollTimer;
         $window.scroll(function(){
-            /*When user manually drags the scroll bar on the window, we want to adjust the scroll position so that a whole block is visible.
-            This won't allow for scroll position to be in between blocks*/
+            //When user manually drags the scroll bar on the window, we want to adjust the scroll position so that a whole block is visible.
+            //This won't allow for scroll position to be in between blocks
             clearTimeout(scrollTimer);
             scrollTimer=setTimeout(function(){
                 adjustScroll();
             }, 500);
         });
-
+*/
         var wiring_tl = new TimelineLite();
         wiring_tl.fromTo($('#leftWire'),0.6, {height: 0}, {height: 80} ).
         fromTo($('#horizWire'),1, {width:"0%"}, {width:"100%"}).
@@ -163,7 +163,7 @@ $( document ).ready(function() {
         });
 
         if(appeared_block_id == 'sound'){
-            if(!jQuery.browser.mobile){
+            if(!isMobile){
                 $('.isotopeSummary').removeClass('enableHover');
                 $('.animated_bg_img').removeClass('animated_bg_img_hover');
                 $('.animated_bg_img_hover').unbind('mouseenter mouseover mouseleave')
@@ -304,7 +304,7 @@ $( document ).ready(function() {
 
     $( window ).resize(function() {
         /*Adjust block heights and scroll position on window resize*/
-        if(!jQuery.browser.mobile){
+        if(!isMobile){
             winHeight = $(window).height();
             $('.section').height(winHeight);
             adjustScroll();
