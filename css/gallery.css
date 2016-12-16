@@ -163,6 +163,7 @@
     display: block;
     //vertical-align: middle;
     height: 100vh;
+    min-height: 70vw;
 
 }
 #gallery_emblem{

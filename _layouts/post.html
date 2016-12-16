@@ -23,7 +23,6 @@ layout: default
                     {% if post.publish == true and post.title != page.title %}
                     <li>
                         <span class="">{{ post.date | date: "%b %-d, %Y" }}</span>
-
                         <h5>
                             <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                         </h5>
@@ -38,6 +37,70 @@ layout: default
             </div>
         </div>
         {% include email-grabber.html %}
+        <div class="row" style="background-color:rgba(255, 255, 255, 0.93); padding:3%;">
+            <div class="row" style="margin-bottom:3rem;">
+                <div class="col-xs-2 col-xs-offset-7" style="margin-top:7rem;"><hr></div>
+                <div class="col-xs-6 ">
+                    <h1 class="" style="text-align:center">discover more</h1>
+                </div>
+                <div class="col-xs-2 " style="margin-top:7rem;"><hr></div>
+            </div>
+            <div style=" margin-top:1rem" class="col-xs-18 col-xs-offset-3    col-md-8  col-md-offset-0">
+                <div class="" style="position:relative">
+                    <a class="" href="{{ site.baseurl }}/">
+                        <div class="gradient" style="">
+                            <img style="width:100%" class=" img-responsive" src="{{ site.baseurl }}/images/home-footer-v2-04.png">
+                        </div>
+                        <div class=" isotopeSummary enableHover" style="bottom:-40px;">
+                            <div class="isotopeDetailed">
+                                <p class="description light_on_dark">Serene Audio Home</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div style=" margin-top:1rem" class="col-xs-18 col-xs-offset-3 col-md-8 col-md-offset-0 ">
+                <div class="" style="position:relative">
+                    <a class="" href="{{ site.baseurl }}/blog">
+                        <div class="gradient" style="">
+                            <img style="width:100%" class=" img-responsive" src="{{ site.baseurl }}/images/blog.jpeg">
+                        </div>
+                        <div class=" isotopeSummary enableHover" style="bottom:-40px;">
+                            <div class="isotopeDetailed">
+                                <p class="description light_on_dark">Blog Home</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div style=" margin-top:1rem" class="col-xs-18 col-xs-offset-3  col-md-8 col-md-offset-0">
+                <div class="" style="position:relative">
+
+                    {% for post in site.posts %}
+                    {% if post.publish == true and post.title == page.title %}
+                    {% assign next_i = forloop.index0 | plus: 1 %}
+                    {% if site.posts[next_i].publish == true %}
+                    <a class="" href="{{site.posts[next_i].url | prepend: site.baseurl}}">
+                        <div class="gradient" style="" >
+                            <img style="visibility: hidden; width:100%;" class=" img-responsive" src="{{ site.baseurl }}/images/home-footer-v2-04.png">
+                            <div  class=" img-responsive" style="background-image:url('{{ site.baseurl }}{{ site.posts[next_i].image.url }}'); position: absolute;height: 100%;width: 100%;top: 0;left: 0;background-size: cover;background-position: center;" ></div>
+                        </div>
+                        <div class=" isotopeSummary enableHover" style="bottom:-40px;">
+                            <div class="isotopeDetailed">
+                                <h5 class="description light_on_dark" >Next </h5>
+                                <p class="description light_on_dark">{{site.posts[next_i].title}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
         <div  class="row" style="background-color:rgba(255, 255, 255, 0.93); padding-bottom:8rem">
             <div class="col-xs-20 col-xs-offset-2 col-sm-16 col-sm-offset-5 col-md-12 col-md-offset-6">
                 <!-- Disqus Start --->

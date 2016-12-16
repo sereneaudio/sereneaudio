@@ -330,7 +330,7 @@ body{
     margin-bottom: 30px;
 }
 .spec_separator{
-    height: 20px;
+    height: 1px;
 }
 
 
@@ -384,7 +384,7 @@ font-style:italic;
 @media (max-width: 768px) {
     #buy_long_img{
         width: 100%;
-        height: auto;
+        /*height: auto;*/
     }
 }
 
@@ -401,6 +401,12 @@ font-style:italic;
 .buy_useful_info h5{
 ; text-shadow:1px 1px 1px rgba(255, 255, 255, 0.78);
 }
+
+#assurances p{
+    font-size: 1.4rem;
+    padding-left: 1rem;
+}
+
 #scrollNav{
     padding: 0;
     margin: 0;
@@ -501,13 +507,14 @@ font-style:italic;
 
 .section{
     overflow:hidden;
-
+    height: 100vh;
+    min-height: 70vw;
 }
 
 .verticalLine {
     //border-left: 1px solid #000;
 }
-
+/*
 .navbar-brand{
     padding-top: 0px;
     height: 0px;
@@ -580,6 +587,7 @@ font-style:italic;
     background-color: black;
     border-bottom-left-radius: 4px;
 }
+*/
 .inset-text {
     /* Shadows are visible under slightly transparent text color */
     color: rgba(255, 189, 97, 0.81);
@@ -762,6 +770,65 @@ font-style:italic;
     animation: bounce 4s 2s infinite;
 }
 
+#downArrow > span{
+    position: relative;
+    bottom: -1.35rem;
+    left: 2.35rem;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-left: -8px;
+    background: rgba(0,0,0,0);
+    border: 2px solid #ffdba2;
+    border-top: 0;
+    border-left: 0;
+    content: '';
+    outline: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+}
+
+#upArrow{
+    display: inline-block;
+    width: 8rem;
+    height: 8rem;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 2px solid rgb(255, 202, 120);
+    border-radius: 4rem;
+    position: absolute;
+    bottom: 8rem;
+    left: 50%;
+    margin-left: -4rem;
+    /*box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2) inset;*/
+    -webkit-animation: bounce 4s 2s infinite;
+    animation: bounce 4s 2s infinite;
+}
+#upArrow > span{
+    position: relative;
+    bottom: -3.5rem;
+    left: 4rem;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-left: -8px;
+    background: rgba(0,0,0,0);
+    border: 2px solid #ffdba2;
+    border-top: 0;
+    border-left: 0;
+    content: '';
+    outline: 0;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    /*box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2) ;*/
+}
 @-webkit-keyframes bounce {
     0%, 10%, 25%, 40%, 50% {
         -webkit-transform: translateY(0);
@@ -791,27 +858,7 @@ font-style:italic;
     }
 }
 
-#downArrow > span{
-    position: relative;
-    bottom: -1.35rem;
-    left: 2.35rem;
-    display: block;
-    width: 10px;
-    height: 10px;
-    margin-left: -8px;
-    background: rgba(0,0,0,0);
-    border: 2px solid #ffdba2;
-    border-top: 0;
-    border-left: 0;
-    content: '';
-    outline: 0;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2) ;
-}
+
 
 .appear_mark {
     width: 10%;
@@ -870,7 +917,7 @@ font-style:italic;
 /*hover over description*/
 .isotopeSummary .isotopeDetailed>.description {
     color: #ffd48e;
-    font-size: 2.3rem;
+    font-size: 2.3rem !important;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.3)
 
 }
@@ -1115,4 +1162,64 @@ div:hover>.enableHover2>.gradient2:after {
     border-width: thin;
     background: rgba(250, 231, 202, 0.77);
     font-weight: 600;
+}
+
+#top-nav, .navbar-inverse {
+    /*
+    background: -webkit-linear-gradient(90deg,rgba(255, 255, 255, 0.0) 0%, rgba(5, 5,5, 0.5) 100%);
+    background: -o-linear-gradient(90deg,rgba(255, 255, 255, 0.0) 0%, rgba(5,5, 5, 0.5) 100%);
+    background: -moz-linear-gradient(90deg,rgba(255, 255, 255, 0.0) 0%, rgba(5, 5,5, 0.5) 100%);
+    background: linear-gradient(0deg,rgba(255, 255, 255, 0.0) 0%, rgba(5, 5, 5, 0.5) 60%);
+    */
+    background: rgba(0, 0, 0, 0.71);
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index:3;
+    border: none;
+    border-radius: 0px;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: rgba(255, 210, 139);
+}
+
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-family: 'concourse-t6', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.08rem;
+    font-kerning:normal ;
+    font-size: 15px;
+    font-variant: small-caps;
+    -webkit-font-feature-settings: 'ss02' 1;
+    -moz-font-feature-settings:  'ss02' 1;
+    -o-font-feature-settings:  'ss02' 1;
+    -ms-font-feature-settings:  'ss02' 1;
+    font-feature-settings:  'ss02' 1;
+    padding: 0;
+    padding-left: 1rem;
+}
+.navbar-nav > li > a::after{
+    content: "|";
+    color: black;
+    margin-left: 1rem;
+    font-family: 'concourse-t2', 'Helvetica Neue', Arial, sans-serif;
+}
+.navbar-nav > li:nth-last-child(2) > a::after{
+    content: "";
+}
+.navbar-nav > li:nth-last-child(1) > a::after{
+    content: "";
+}
+.navbar-nav > li > a #cart-quantity{
+    color: #ffd28b;
+}
+@media (max-width: 768px) {
+    .navbar-nav > li {
+        margin-top: 1rem;
+    }
+}
+#assurances {
+    background-color: aliceblue;
 }

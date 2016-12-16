@@ -1,3 +1,5 @@
+---
+---
 //we'll use a window.onload for simplicity, but typically it is best to use either jQuery's $(document).ready() or $(window).load() or cross-browser event listeners so that you're not limited to one.
 
 $( document ).ready(function() {
@@ -12,15 +14,16 @@ $( document ).ready(function() {
     }else{
         var winHeight = $window.outerHeight();
     }
+    /*
     $('.section').height(winHeight);
     setTimeout(function(){
-        /*
-        We add the transition so things don't jump around durring windows resize. Makes the resize look smoother.
-        The transition is added after page has loaded, because if it is the there when page is loading, it looks ugly.
-        */
+
+        //We add the transition so things don't jump around durring windows resize. Makes the resize look smoother.
+        //The transition is added after page has loaded, because if it is the there when page is loading, it looks ugly.
+
         $('.section').css({'transition':'height 0.8s'});
     }, 2);
-
+*/
     if(!isMobile){
         var scroll_tween = TweenMax.to($window, 1, {
             scrollTo : { y: 0, autoKill:false },
@@ -55,7 +58,7 @@ $( document ).ready(function() {
 
         var scrollTop, finalScroll, lastUpdateTime = 0;
 
-/*
+{% comment %}
         $window.on("mousewheel DOMMouseScroll", function(event){
             if($(event.target).parents('.reviewScroll').length > 0) {
                 return;
@@ -130,7 +133,7 @@ $( document ).ready(function() {
                 adjustScroll();
             }, 500);
         });
-*/
+{% endcomment %}
         var wiring_tl = new TimelineLite();
         wiring_tl.fromTo($('#leftWire'),0.6, {height: 0}, {height: 80} ).
         fromTo($('#horizWire'),1, {width:"0%"}, {width:"100%"}).
@@ -301,9 +304,9 @@ $( document ).ready(function() {
 
         }
     }
-
+/*
     $( window ).resize(function() {
-        /*Adjust block heights and scroll position on window resize*/
+        //Adjust block heights and scroll position on window resize
         if(!isMobile){
             winHeight = $(window).height();
             $('.section').height(winHeight);
@@ -314,7 +317,7 @@ $( document ).ready(function() {
     });
 
     function    adjustScroll(){
-        /*Adjust scroll position when a block is not perfectly aligned with the viewport*/
+        //Adjust scroll position when a block is not perfectly aligned with the viewport
         $('.block_wrapper').each(function(){
             //console.log($(this).offset().top);
             var viewportTop = $(this).offset().top - $(window).scrollTop()
@@ -337,5 +340,6 @@ $( document ).ready(function() {
             }
         });
     }
+    */
 });
 

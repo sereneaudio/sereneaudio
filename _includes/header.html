@@ -12,28 +12,50 @@
 
 {% endif %}
 
-<div class="container-fluid" id="" style="width:100%;position: fixed; z-index:3; pointer-events:none">
-    <div class="row" style="padding-top:2rem">
-        <a href="{{ site.baseurl }}/" style=" pointer-events:auto">
-
-            {% if page.title == 'Talisman Speakers' or page.title == 'Talisman Speakers Brochure' or page.title == 'Serene Audio' %}
-            <img class="hidden-xs" src="{{ site.baseurl }}/images/icons/Logo.svg" style="width:120px;margin-left:25px; margin-top:1px; position:relative; opacity:0.8"/>
-            <img class="visible-xs" src="{{ site.baseurl }}/images/icons/home.svg" style="width:30px;margin-left:10px; margin-top:-5px; position:absolute; opacity:0.75"/>
-            {% else %}
-            <img class="hidden-xs" src="{{ site.baseurl }}/images/icons/Logo-black.svg" style="width:120px;margin-left:25px; margin-top:1px; position:relative; opacity:0.8"/>
-            <img class="visible-xs" src="{{ site.baseurl }}/images/icons/home.svg" style="width:30px;margin-left:10px; margin-top:-5px; position:absolute; opacity:0.75"/>
-
-            {% endif %}
-        </a>
-
-        <p data-fc-id="minicart" class="col-xs-2 pull-right"  style="padding-top:0px"  style=" pointer-events:auto">
-
-            <a href="https://sereneaudio.foxycart.com/cart" style="pointer-events:auto">
-                <img src="{{ site.baseurl }}/images/icons/Shopping_cart.svg" style="width:30px ;opacity:0.85">
-                <span class="text_shadow_light" data-fc-id="minicart-quantity">0</span>
+<nav class="navbar navbar-inverse" style="width:100%;position: fixed; z-index:3">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/">
+                <img class="hidden-xs" src="{{ site.baseurl }}/images/icons/Logo.svg" style="width:120px;-margin-left:25px; margin-top:-10px; position:relative; opacity:0.8"/>
+                <img class="visible-xs" src="{{ site.baseurl }}/images/icons/home.svg" style="width:30px;margin-left:10px; margin-top:-5px; position:absolute; opacity:0.75"/>
             </a>
-
-        </p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right" style="padding-top:1rem">
+                {% comment %}
+                <!--
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+-->{% endcomment %}
+                <li><a href="{{ site.baseurl }}/story">Our Story</a></li>
+                <li><a href="{{ site.baseurl }}/talisman">Talisman Speakers </a></li>
+                <li><a id="KS-popup" style="color:#ff961b" href="{{ site.baseurl }}/#delicious">Kickstarter Campaign</a></li>
+                <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
+                <li   style="width:60px">
+                    <a data-fc-id="minicart" href="https://sereneaudio.foxycart.com/cart" style="height:30px">
+                    <img src="{{ site.baseurl }}/images/icons/Shopping_cart.svg" style="width:30px ;opacity:0.85">
+                        <span class="text_shadow_light" id="cart-quantity" data-fc-id="minicart-quantity">0</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+-->
+            </ul>
+        </div>
     </div>
-</div>
-
+</nav>
