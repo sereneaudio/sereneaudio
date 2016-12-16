@@ -14,7 +14,7 @@ This code manages the gallery block
         //Zoom in
         //Storing the zoom state. doesn't make sense to store this in this element, but it does the job
         //$(this).data('zoomData' , {isZoomed : true});
-        var windowHeight = $(window).height(),
+        var windowHeight = Math.max($(window).height(), 0.7*$(window).width()),
             windowWidth = $(window).width();
         imageTile = $(this);
         imageTile.addClass('hideExpandIcon');
@@ -103,7 +103,7 @@ This code manages the gallery block
 
     function calcGalleryLayout(){
         /*This function calculates size and position of gallery and it's tiles*/
-        var winHeight = $(window).height();
+        var winHeight = Math.max($(window).height(), 0.7*$(window).width());
         var winWidth = $(window).width();
         $('.gallery_container').height(winHeight);
         $('.gallery_container').width(winWidth);
