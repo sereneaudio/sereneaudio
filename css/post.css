@@ -43,7 +43,8 @@
 }
 
 figcaption {
-    font-size: 2.0rem;
+    margin-top: 0.5rem;
+    font-size: 1.55rem;
     text-align: center;
     list-style-position: outside;
     font-family: "concourse-t3",'Helvetica Neue', Arial, sans-serif;
@@ -88,4 +89,16 @@ figcaption {
 }
 .audio-sample-title:hover{
     color: #f5c77e;
+}
+
+.img-social-share{
+    position: absolute !important;
+    right: 0;
+    bottom: 0rem;
+    opacity: 0.1;
+    -webkit-transition: opacity 0.3s; /* Safari */
+    transition: opacity 0.3s;
+}
+img:hover ~ .img-social-share, .img-social-share:hover{
+    opacity: 1;
 }
