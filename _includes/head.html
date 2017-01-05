@@ -7,7 +7,7 @@
     <!-- Pinterest -->
     <meta name="p:domain_verify" content="cfe547a98fb5750613f33360c2ad7a8a"/>
     <!-- /Pinterest -->
-    {% if page.og_image_url %}<meta property="og:image" content="{{ site.baseurl }}{{ page.og_image_url }}" />{% endif %}
+    {% if page.og_image_url %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og_image_url }}" />{% endif %}
     {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}" />{% endif %}
     {% if page.og_desc %}<meta property="og:description " content="{{ page.og_desc }}" />{% endif %}
     <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
